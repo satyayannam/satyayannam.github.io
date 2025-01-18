@@ -3,155 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combined HTML, CSS, and JS</title>
+    <title>Animated Nested Divs</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-        
         body {
-            width: 100vw;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: black;
-            overflow: hidden;
+            background-color: #000;
+            container-type: inline-size;
         }
 
-        .card, .content {
-            overflow: hidden;
+        div {
+            aspect-ratio: 1;
+            background: var(--bg, #464167);
+            border-radius: 50%;
+            overflow: clip;
+            width: var(--w, 100cqi);
         }
 
-        .card {
-            width: 1280px;
-            height: 720px;
-            margin: 0;
-            justify-content: center;
+        div[style] {
+            animation: rotate var(--t, 3s) cubic-bezier(0.45, -0.35, 0.35, 1.35) infinite;
+            offset-anchor: 50% 0%;
+            offset-path: content-box;
         }
 
-        .content {
-            width: 1000px;
-            height: 562px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 40px;
-            animation: 200s linear infinite brightness;
-        }
-
-        .backgroundImage, .boyImage {
-            position: absolute;
-            width: 1000px;
-        }
-
-        .boyImage {
-            z-index: 2;
-            animation: 200s linear infinite blur;
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container-full {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            transform: scale(1);
-            animation: 200s linear infinite zoom-in;
-        }
-
-        .cube {
-            position: relative;
-            transform-style: preserve-3d;
-            perspective: 480px;
-            perspective-origin: 51% 70%;
-        }
-
-        .face {
-            position: absolute;
-            width: 870px;
-            height: 190px;
-            background: transparent;
-            border: 0 solid #000;
-            opacity: 0.5;
-        }
-
-        .hue {
-            top: 0;
-            left: 0;
-            z-index: 3;
-            width: 100%;
-            height: 100%;
-            mix-blend-mode: overlay;
-            background: radial-gradient(ellipse at center, #1e5799 0, #7db9e8 100%);
-            opacity: 1;
-            animation: 8s infinite filter-animation;
-        }
-
-        @keyframes brightness {
-            0% { filter: brightness(1) contrast(1); }
-            100% { filter: brightness(0.8) contrast(1.3); }
-        }
-
-        @keyframes blur {
-            0% { filter: blur(0px); }
-            100% { filter: blur(3px); }
-        }
-
-        @keyframes filter-animation {
-            0%, 100% { filter: hue-rotate(0deg); }
-            50% { filter: hue-rotate(100deg); }
-        }
-
-        @keyframes zoom-in {
-            0% { transform: scale(1); }
-            100% { transform: scale(2.5); }
+        @keyframes rotate {
+            to {
+                offset-distance: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="content">
-            <div class="container">
-                <div class="backgroundImage"></div>
-                <div class="boyImage"></div>
-                <div class="container-full">
-                    <div class="hue"></div>
-                    <div class="text"></div>
+    <div style="--w:90cqi;--bg:#d94527;--t:8.1s">
+        <div style="--w:80cqi;--bg:#f5a845;--t:7.3s">
+            <div style="--w:70cqi;--bg:#24a482;--t:6.7s">
+                <div style="--w:60cqi;--bg:#756c8c;--t:5.9s">
+                    <div style="--w:50cqi;--bg:#d6c2af;--t:5.3s">
+                        <div style="--w:40cqi;--bg:#464167;--t:4.7s">
+                            <div style="--w:30cqi;--bg:#e17b5f;--t:4.1s">
+                                <div style="--w:20cqi;--bg:#3c8d7c;--t:3.7s">
+                                    <div style="--w:15cqi;--bg:#cb8e6e;--t:3.1s">
+                                        <div style="--w:10cqi;--bg:#8b557d;--t:2.9s">
+                                            <div style="--w:7cqi;--bg:#b84d38;--t:2.3s">
+                                                <div style="--w:5cqi;--bg:#1d7a61;--t:1.9s">
+                                                    <div style="--w:3cqi;--bg:#9c8576;--t:1.7s">
+                                                        <div style="--w:2cqi;--bg:#e3935c;--t:1.3s">
+                                                            <div style="--w:1cqi;--bg:#5d5678;--t:1.1s"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        const kiplingPoem = `
-            If you can keep your head when all about you 
-            Are losing theirs and blaming it on you... 
-            -Rudyard Kipling
-        `;
-
-        function insertPoemIntoDivs() {
-            document.querySelectorAll(".text").forEach(div => {
-                div.innerHTML = kiplingPoem;
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", insertPoemIntoDivs);
-
-        const contentDiv = document.querySelector(".content");
-
-        function adjustContentSize() {
-            const viewportWidth = window.innerWidth;
-            const scaleFactor = viewportWidth < 1000 ? (viewportWidth / 1000) * 0.8 : 1;
-            contentDiv.style.transform = `scale(${scaleFactor})`;
-        }
-
-        window.addEventListener("load", adjustContentSize);
-        window.addEventListener("resize", adjustContentSize);
-    </script>
 </body>
 </html>
