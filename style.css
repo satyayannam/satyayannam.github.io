@@ -75,3 +75,25 @@ body {
     font-weight: 500;
   }
   
+  /* Description text in cards */
+.card__desc {
+    font-size: 0.85em;
+    color: #ccc;
+    margin-top: 0.5em;
+  }
+  
+  /* Make cards responsive */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  /* Optional Dark Mode Toggle */
+  .dark-mode {
+    background: #121212;
+    color: #fff;
+  }
+  
