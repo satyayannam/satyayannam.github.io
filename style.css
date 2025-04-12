@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* Reset and Base Styling */
 * {
     margin: 0;
     padding: 0;
@@ -7,43 +7,65 @@
   
   body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
-    line-height: 1.6;
+    background-color: #bbd6ff;
+    color: #222;
     padding: 2rem;
+    line-height: 1.6;
   }
   
-  /* Header Styling */
+  /* Header */
   h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
+    color: #1a1a1a;
   }
   
-  h1 span {
-    font-size: 2rem;
+  h1::after {
+    content: " 👋";
   }
   
   p {
-    margin: 1rem 0;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #444;
   }
   
-  /* Section Spacing */
-  section {
-    margin-top: 2rem;
+  /* Navigation */
+  nav {
+    margin-bottom: 2rem;
   }
   
+  nav a {
+    margin-right: 1rem;
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Section Titles */
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 2rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
   }
   
+  /* Lists */
   ul {
-    list-style: disc inside;
-    padding-left: 1rem;
+    list-style-type: disc;
+    padding-left: 1.5rem;
   }
   
-  /* Links */
+  li {
+    margin-bottom: 0.7rem;
+  }
+  
+  /* Contact Links */
   a {
     color: #6c63ff;
     text-decoration: none;
@@ -55,9 +77,9 @@
   
   /* Footer */
   footer {
-    text-align: center;
-    margin-top: 3rem;
-    color: #777;
+    margin-top: 4rem;
     font-size: 0.9rem;
+    color: #888;
+    text-align: center;
   }
   
