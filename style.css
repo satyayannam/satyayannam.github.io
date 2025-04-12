@@ -1,4 +1,4 @@
-/* Reset and Base Styling */
+/* Base */
 * {
     margin: 0;
     padding: 0;
@@ -7,79 +7,92 @@
   
   body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #bbd6ff;
-    color: #222;
-    padding: 2rem;
+    background: #f9f9f9;
+    color: #333;
     line-height: 1.6;
   }
   
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+  }
+  
   /* Header */
-  h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #1a1a1a;
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
   }
   
-  h1::after {
-    content: " 👋";
+  header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
   }
   
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: #444;
+  header p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 0.5rem;
   }
   
-  /* Navigation */
   nav {
-    margin-bottom: 2rem;
+    margin-top: 1rem;
   }
   
   nav a {
-    margin-right: 1rem;
-    color: #6c63ff;
+    margin: 0 0.8rem;
     text-decoration: none;
-    font-weight: 500;
+    color: #6c63ff;
+    font-weight: bold;
   }
   
   nav a:hover {
     text-decoration: underline;
   }
   
-  /* Section Titles */
+  /* Sections */
+  section {
+    margin-bottom: 3rem;
+  }
+  
   h2 {
     font-size: 1.8rem;
-    color: #333;
-    margin-top: 2rem;
     margin-bottom: 1rem;
+    color: #1f1f1f;
   }
   
-  /* Lists */
+  .card {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card p {
+    color: #555;
+  }
+  
+  /* Accomplishments List */
   ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
+    padding-left: 1.2rem;
   }
   
-  li {
-    margin-bottom: 0.7rem;
-  }
-  
-  /* Contact Links */
-  a {
-    color: #6c63ff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
+  ul li {
+    margin-bottom: 0.6rem;
   }
   
   /* Footer */
   footer {
-    margin-top: 4rem;
-    font-size: 0.9rem;
-    color: #888;
     text-align: center;
+    font-size: 0.9rem;
+    color: #999;
+    padding-top: 2rem;
   }
   
