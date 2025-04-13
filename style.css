@@ -97,3 +97,98 @@ body {
     color: #fff;
   }
   
+  /* ===== DARK HOMEPAGE STYLE ===== */
+body.dark-home {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* Moon animation */
+.moon-wrapper {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: rotateMoon 30s linear infinite;
+}
+
+.moon {
+  width: 120px;
+  height: 120px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Full_Moon_Luc_Viatour.jpg/240px-Full_Moon_Luc_Viatour.jpg');
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  filter: grayscale(1) brightness(0.8);
+}
+
+/* Rotate moon */
+@keyframes rotateMoon {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Text Overlay */
+.hero-text {
+  position: relative;
+  top: 55%;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00f6ff;
+}
+
+.hero-text h1 span {
+  color: #ff2fff;
+}
+
+.hero-text .quote {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.hero-text .bio {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-text h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.certs {
+  list-style: square;
+  color: #ddd;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.cta a {
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(to right, #6c63ff, #ff2fff);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  margin: 0 0.5rem;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.cta a:hover {
+  opacity: 0.8;
+}
