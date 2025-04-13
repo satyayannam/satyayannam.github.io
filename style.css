@@ -117,12 +117,12 @@ body.dark-home {
   z-index: -1;
 }
 
-/* Moon Animation */
 .moon-wrapper {
   position: absolute;
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .moon {
@@ -136,10 +136,12 @@ body.dark-home {
   animation: rotateMoon 20s linear infinite;
 }
 
+
 @keyframes rotateMoon {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 
 /* Hero Section */
 .hero-text {
