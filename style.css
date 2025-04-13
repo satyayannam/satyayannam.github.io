@@ -129,19 +129,18 @@ body.dark-home {
   width: 120px;
   height: 120px;
   background-image: url('https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
-  background-size: cover;
+  background-repeat: repeat-x;
+  background-size: 240px 120px;
   border-radius: 50%;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  animation: scrollMoon 20s linear infinite;
   filter: brightness(1.1);
-  animation: rotateMoon 20s linear infinite;
+}
+@keyframes scrollMoon {
+  0% { background-position: 0 0; }
+  100% { background-position: -240px 0; }
 }
 
-
-
-@keyframes rotateMoon {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
 
 
