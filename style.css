@@ -1,120 +1,144 @@
+/* ========== GLOBAL STYLES ========== */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f8f9fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 2rem;
-  }
-  
-  header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.3rem;
-    color: #2c3e50;
-  }
-  
-  nav a {
-    margin: 0 1rem;
-    color: #6c63ff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  section {
-    margin-top: 1.5rem;
-  }
-  
-  footer {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #aaa;
-  }
-  
-  ul {
-    padding-left: 1.5rem;
-    line-height: 1.8;
-  }
-  
-  /* Card Layout */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .card {
-    background: white;
-    padding: 1.2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .card h3 {
-    margin-bottom: 0.5rem;
-  }
-  
-  .card a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: #6c63ff;
-    font-weight: 500;
-  }
-  
-  /* Description text in cards */
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #333;
+}
+
+ul {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
+  color: #2c3e50;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+section {
+  margin-top: 1.5rem;
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* ========== CARD STYLES ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #6c63ff;
+  font-weight: 500;
+}
+
 .card__desc {
-    font-size: 0.85em;
-    color: #ccc;
-    margin-top: 0.5em;
-  }
-  
-  /* Make cards responsive */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  /* Optional Dark Mode Toggle */
-  .dark-mode {
-    background: #121212;
-    color: #fff;
-  }
-  
-  /* ===== DARK HOMEPAGE STYLE ===== */
+  font-size: 0.85em;
+  color: #ccc;
+  margin-top: 0.5em;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Optional Dark Mode */
+.dark-mode {
+  background: #121212;
+  color: #fff;
+}
+
+/* ========== DARK HOMEPAGE ========== */
 body.dark-home {
   background-color: #0a0a0a;
   color: #f5f5f5;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
   overflow-x: hidden;
   height: 100vh;
   position: relative;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Moon animation */
+/* Star Background Layers */
+.stars, .stars2, .stars3 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://i.imgur.com/2JkXkDB.png') repeat top center;
+  z-index: -1;
+  animation: moveStars 200s linear infinite;
+}
+
+.stars2 {
+  background: transparent url('https://i.imgur.com/KKpR81S.png') repeat top center;
+  animation: moveStars 400s linear infinite;
+  opacity: 0.4;
+}
+
+.stars3 {
+  background: transparent url('https://i.imgur.com/7zX46Hd.png') repeat top center;
+  animation: moveStars 600s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 10000px; }
+}
+
+/* Moon Animation */
 .moon-wrapper {
   position: absolute;
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  animation: rotateMoon 30s linear infinite;
 }
 
 .moon {
@@ -125,15 +149,15 @@ body.dark-home {
   border-radius: 50%;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
   filter: grayscale(1) brightness(0.8);
+  animation: rotateMoon 20s linear infinite;
 }
 
-/* Rotate moon */
 @keyframes rotateMoon {
-  0% { transform: translateX(-50%) rotate(0deg); }
-  100% { transform: translateX(-50%) rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Text Overlay */
+/* Hero Text Section */
 .hero-text {
   position: relative;
   top: 55%;
@@ -160,6 +184,26 @@ body.dark-home {
   margin-bottom: 2rem;
 }
 
+/* Poetic Style & Typewriter */
+.poetic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  line-height: 2;
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  margin: 2rem 0;
+}
+
+.blinker {
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Bio & Certifications */
 .hero-text .bio {
   color: #ccc;
   font-size: 1rem;
@@ -178,6 +222,7 @@ body.dark-home {
   margin-bottom: 2rem;
 }
 
+/* Call-to-Action Buttons */
 .cta a {
   text-decoration: none;
   color: #fff;
