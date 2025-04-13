@@ -117,30 +117,37 @@ body.dark-home {
   z-index: -1;
 }
 
-.moon-wrapper {
+.moon-wrapper::before {
+  content: "";
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+  top: -20px;
+  left: -20px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(rgba(255,255,255,0.2), transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
 }
+
 
 .moon {
   width: 120px;
   height: 120px;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Full_Moon_Luc_Viatour.jpg/240px-Full_Moon_Luc_Viatour.jpg');
+  background-image: url('https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
   background-size: cover;
   border-radius: 50%;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-  filter: grayscale(1) brightness(0.8);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  filter: brightness(1.1);
   animation: rotateMoon 20s linear infinite;
 }
+
 
 
 @keyframes rotateMoon {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 
 
 /* Hero Section */
