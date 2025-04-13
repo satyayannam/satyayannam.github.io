@@ -128,19 +128,21 @@ body.dark-home {
 .moon {
   width: 120px;
   height: 120px;
-  background-image: url('https://raw.githubusercontent.com/shaunlebron/blender-geocraft/master/media/textures/2k_moon.jpg');
-  background-size: 240px 120px; /* make the texture scroll smoothly */
+  background-image: url('https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
+  background-size: cover;
   border-radius: 50%;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-  filter: brightness(1.2);
-  animation: rotateMoonTexture 15s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  filter: brightness(1.1);
+  animation: rotateMoon 20s linear infinite;
 }
 
 
-@keyframes rotateMoonTexture {
-  from { background-position: 0 0; }
-  to { background-position: -240px 0; }
+
+@keyframes rotateMoon {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
+
 
 
 
