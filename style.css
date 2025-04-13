@@ -106,27 +106,28 @@ body.dark-home {
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Star Background Layers */
+/* Star Background Layers (FIXED) */
 .stars, .stars2, .stars3 {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: transparent url('https://i.imgur.com/2JkXkDB.png') repeat top center;
+  background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png') repeat top center;
   z-index: -1;
   animation: moveStars 200s linear infinite;
 }
 
 .stars2 {
-  background: transparent url('https://i.imgur.com/KKpR81S.png') repeat top center;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat top center;
   animation: moveStars 400s linear infinite;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 .stars3 {
-  background: transparent url('https://i.imgur.com/7zX46Hd.png') repeat top center;
+  background: transparent url('https://www.transparenttextures.com/patterns/tiny-grid.png') repeat top center;
   animation: moveStars 600s linear infinite;
   opacity: 0.2;
 }
+
 
 @keyframes moveStars {
   from { background-position: 0 0; }
