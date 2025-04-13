@@ -117,36 +117,31 @@ body.dark-home {
   z-index: -1;
 }
 
-.moon-wrapper::before {
-  content: "";
+.moon-wrapper {
   position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(rgba(255,255,255,0.2), transparent 70%);
-  border-radius: 50%;
-  z-index: -1;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
-
 
 .moon {
   width: 120px;
   height: 120px;
-  background-image: url('https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
-  background-size: cover;
+  background-image: url('https://raw.githubusercontent.com/shaunlebron/blender-geocraft/master/media/textures/2k_moon.jpg');
+  background-size: 240px 120px; /* make the texture scroll smoothly */
   border-radius: 50%;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
-  filter: brightness(1.1);
-  animation: rotateMoon 20s linear infinite;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  filter: brightness(1.2);
+  animation: rotateMoonTexture 15s linear infinite;
 }
 
 
-
-@keyframes rotateMoon {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes rotateMoonTexture {
+  from { background-position: 0 0; }
+  to { background-position: -240px 0; }
 }
+
 
 
 
