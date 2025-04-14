@@ -1,4 +1,4 @@
-/* ========== BASE STYLES ========== */
+/* ========== GLOBAL STYLES ========== */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -19,18 +19,18 @@ canvas#starfield {
 
 .orb-behind {
   position: absolute;
-  top: 150px;
+  top: 160px;
   left: 50%;
   transform: translateX(-50%);
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 0, 255, 0.25), rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.2), rgba(0, 0, 0, 0) 70%);
   box-shadow:
     0 0 40px rgba(255, 0, 255, 0.5),
-    0 0 80px rgba(0, 255, 255, 0.3);
-  animation: glow-pulse 4s ease-in-out infinite;
+    0 0 80px rgba(0, 255, 255, 0.2);
   z-index: 0;
+  animation: glow-pulse 4s ease-in-out infinite;
 }
 
 @keyframes glow-pulse {
@@ -48,7 +48,7 @@ canvas#starfield {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem 6% 2rem;
+  padding: 3rem 6% 1rem;
 }
 
 .hero-left h1 {
@@ -71,19 +71,18 @@ canvas#starfield {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.6rem;
-  margin: 1rem auto 2rem;
-  max-width: 80%;
+  gap: 0.8rem;
+  margin: 2rem auto;
+  max-width: 85%;
   z-index: 2;
-  position: relative;
 }
 
 .skills-front span {
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.07);
   border-radius: 18px;
-  font-size: 0.85rem;
-  color: #fff;
+  font-size: 0.9rem;
+  color: #f0f0f0;
   backdrop-filter: blur(4px);
   transition: 0.3s ease;
 }
@@ -94,53 +93,46 @@ canvas#starfield {
 
 .skills-ring {
   position: absolute;
-  top: 135px;
+  top: 160px;
   left: 50%;
   transform: translateX(-50%);
-  width: 480px;
-  height: 480px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  pointer-events: none;
   z-index: 1;
+  pointer-events: none;
 }
 
 .orbit-container {
-  position: relative;
   width: 100%;
   height: 100%;
-  animation: rotateRing 25s linear infinite;
-  transform-origin: center;
+  position: relative;
+  animation: rotateRing 18s linear infinite;
+  transform-origin: center center;
 }
 
 .orbit-container span {
   position: absolute;
-  font-size: 0.7rem;
-  color: #eee;
-  padding: 0.3rem 0.8rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(2px);
-  transform: translate(-50%, -50%) rotate(0deg);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.4rem 0.6rem;
+  border-radius: 50%;
+  text-transform: uppercase;
+  text-align: center;
   white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
-/* Position 16 equally spaced skill tags around the circle */
-.orbit-container span:nth-child(1)  { top: 0%; left: 50%; }
-.orbit-container span:nth-child(2)  { top: 14%; left: 85%; }
-.orbit-container span:nth-child(3)  { top: 36%; left: 100%; }
-.orbit-container span:nth-child(4)  { top: 65%; left: 90%; }
-.orbit-container span:nth-child(5)  { top: 88%; left: 65%; }
-.orbit-container span:nth-child(6)  { top: 100%; left: 50%; }
-.orbit-container span:nth-child(7)  { top: 88%; left: 35%; }
-.orbit-container span:nth-child(8)  { top: 65%; left: 10%; }
-.orbit-container span:nth-child(9)  { top: 36%; left: 0%; }
-.orbit-container span:nth-child(10) { top: 14%; left: 15%; }
-.orbit-container span:nth-child(11) { top: 5%;  left: 30%; }
-.orbit-container span:nth-child(12) { top: 5%;  left: 70%; }
-.orbit-container span:nth-child(13) { top: 20%; left: 95%; }
-.orbit-container span:nth-child(14) { top: 50%; left: 100%; }
-.orbit-container span:nth-child(15) { top: 80%; left: 85%; }
-.orbit-container span:nth-child(16) { top: 95%; left: 50%; }
+.orbit-container span:nth-child(1)  { top: 0%;   left: 50%; }
+.orbit-container span:nth-child(2)  { top: 20%;  left: 85%; }
+.orbit-container span:nth-child(3)  { top: 50%;  left: 100%; }
+.orbit-container span:nth-child(4)  { top: 80%;  left: 85%; }
+.orbit-container span:nth-child(5)  { top: 100%; left: 50%; }
+.orbit-container span:nth-child(6)  { top: 80%;  left: 15%; }
+.orbit-container span:nth-child(7)  { top: 50%;  left: 0%; }
+.orbit-container span:nth-child(8)  { top: 20%;  left: 15%; }
 
 @keyframes rotateRing {
   0%   { transform: rotate(0deg); }
@@ -153,7 +145,7 @@ canvas#starfield {
   font-size: 1.2rem;
   color: #ccc;
   text-align: center;
-  margin-top: 500px;
+  margin-top: 480px;
 }
 
 .contact-section {
