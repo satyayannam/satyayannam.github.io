@@ -68,7 +68,7 @@ canvas#starfield {
   padding-top: 1rem;
 }
 
-/* Floating Asteroid Skills Styled as Colored Orbs */
+/* Floating Asteroid Skills Styled as Colored Circles */
 .asteroid-field {
   position: absolute;
   top: 0;
@@ -81,10 +81,10 @@ canvas#starfield {
 
 .asteroid-skill {
   position: absolute;
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -92,25 +92,25 @@ canvas#starfield {
   text-align: center;
   text-transform: uppercase;
   color: #fff;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   animation: float 10s ease-in-out infinite alternate;
 }
 
 .asteroid-skill:nth-child(4n+0) {
   background: radial-gradient(circle at center, rgba(255, 0, 255, 0.3), transparent);
-  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.5);
 }
 .asteroid-skill:nth-child(4n+1) {
   background: radial-gradient(circle at center, rgba(0, 255, 255, 0.3), transparent);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
 }
 .asteroid-skill:nth-child(4n+2) {
   background: radial-gradient(circle at center, rgba(255, 255, 0, 0.3), transparent);
-  box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+  box-shadow: 0 0 25px rgba(255, 255, 0, 0.5);
 }
 .asteroid-skill:nth-child(4n+3) {
   background: radial-gradient(circle at center, rgba(255, 100, 0, 0.3), transparent);
-  box-shadow: 0 0 30px rgba(255, 100, 0, 0.5);
+  box-shadow: 0 0 25px rgba(255, 100, 0, 0.5);
 }
 
 @keyframes float {
