@@ -127,10 +127,30 @@ canvas#starfield {
   margin-top: 480px;
 }
 
-.contact-section {
+/* Interest section */
+.interests-section {
   text-align: center;
-  padding: 2rem 1rem;
+  margin-top: 6rem;
+  padding: 2rem;
+  font-size: 1rem;
   color: #ccc;
+  line-height: 1.6;
+}
+
+.interests-section h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.interests-section span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+  color: #f0f0f0;
 }
 
 .bottom-nav {
