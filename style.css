@@ -32,6 +32,26 @@ canvas#starfield {
     0 0 40px rgba(255, 0, 255, 0.4),
     0 0 80px rgba(0, 255, 255, 0.3),
     0 0 120px rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.orb-text {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  max-width: 180px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+  0% { opacity: 0.85; text-shadow: 0 0 5px #ff2fff; }
+  100% { opacity: 1; text-shadow: 0 0 15px #00f6ff; }
 }
 
 .hero-grid {
@@ -79,7 +99,6 @@ canvas#starfield {
   z-index: 5;
 }
 
-/* floating animation */
 .moving {
   animation: float 10s ease-in-out infinite alternate;
 }
