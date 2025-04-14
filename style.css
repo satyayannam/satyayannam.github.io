@@ -117,32 +117,26 @@ body.dark-home {
   z-index: -1;
 }
 
-.moon-wrapper {
+.orb-behind {
   position: absolute;
-  top: 10%;
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
-}
-
-.moon {
-  width: 120px;
-  height: 120px;
-  background-image: url('https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
-  background-repeat: repeat-x;
-  background-size: 240px 120px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-  animation: scrollMoon 20s linear infinite;
-  filter: brightness(1.1);
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.3), rgba(0, 0, 0, 0));
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4),
+              0 0 80px rgba(255, 0, 255, 0.2),
+              inset 0 0 60px rgba(255, 255, 255, 0.1);
+  animation: pulse 6s ease-in-out infinite;
+  z-index: 0;
 }
-@keyframes scrollMoon {
-  0% { background-position: 0 0; }
-  100% { background-position: -240px 0; }
+
+@keyframes pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
 }
-
-
-
 
 
 
