@@ -136,3 +136,14 @@ canvas#starfield {
 .bottom-nav .nav-item:hover {
   color: #00f6ff;
 }
+
+.asteroid-skill:nth-child(odd) {
+  background: rgba(0, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  color: #ccffff;
+}
+.asteroid-skill:nth-child(even) {
+  background: rgba(255, 0, 255, 0.08);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+  color: #ffccff;
+}
