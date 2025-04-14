@@ -25,10 +25,10 @@ canvas#starfield {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 0, 255, 0.2), rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.25), rgba(0, 0, 0, 0) 70%);
   box-shadow:
-    0 0 40px rgba(255, 0, 255, 0.5),
-    0 0 80px rgba(0, 255, 255, 0.2);
+    0 0 60px rgba(255, 0, 255, 0.6),
+    0 0 100px rgba(0, 255, 255, 0.3);
   z-index: 0;
   animation: glow-pulse 4s ease-in-out infinite;
 }
@@ -65,9 +65,10 @@ canvas#starfield {
   font-size: 1rem;
   text-align: right;
   color: #ccc;
+  padding-top: 1rem;
 }
 
-/* Asteroid Skills Floating Around Orb */
+/* Floating Asteroid Skills Styled as Colored Orbs */
 .asteroid-field {
   position: absolute;
   top: 0;
@@ -80,20 +81,41 @@ canvas#starfield {
 
 .asteroid-skill {
   position: absolute;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 0.65rem;
-  font-weight: 600;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   text-transform: uppercase;
-  backdrop-filter: blur(3px);
-  animation: float 10s infinite ease-in-out alternate;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+.asteroid-skill:nth-child(4n+0) {
+  background: radial-gradient(circle at center, rgba(255, 0, 255, 0.3), transparent);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+.asteroid-skill:nth-child(4n+1) {
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.3), transparent);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+.asteroid-skill:nth-child(4n+2) {
+  background: radial-gradient(circle at center, rgba(255, 255, 0, 0.3), transparent);
+  box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+}
+.asteroid-skill:nth-child(4n+3) {
+  background: radial-gradient(circle at center, rgba(255, 100, 0, 0.3), transparent);
+  box-shadow: 0 0 30px rgba(255, 100, 0, 0.5);
 }
 
 @keyframes float {
-  0% { transform: translateY(0px) scale(1); opacity: 0.9; }
-  100% { transform: translateY(10px) scale(1.05); opacity: 1; }
+  0% { transform: translateY(0px) scale(1); opacity: 0.85; }
+  100% { transform: translateY(12px) scale(1.05); opacity: 1; }
 }
 
 .quote.poetic {
@@ -135,15 +157,4 @@ canvas#starfield {
 
 .bottom-nav .nav-item:hover {
   color: #00f6ff;
-}
-
-.asteroid-skill:nth-child(odd) {
-  background: rgba(0, 255, 255, 0.08);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-  color: #ccffff;
-}
-.asteroid-skill:nth-child(even) {
-  background: rgba(255, 0, 255, 0.08);
-  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
-  color: #ffccff;
 }
