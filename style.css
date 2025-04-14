@@ -178,3 +178,13 @@ canvas#starfield {
 .bottom-nav .nav-item:hover {
   color: #00f6ff;
 }
+
+
+.moving {
+  animation: float 20s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translate(0px, 0px); }
+  100% { transform: translate(10px, -10px); }
+}
