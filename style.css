@@ -1,9 +1,9 @@
-/* ====== Global Styles ====== */
+/* ========== BASE STYLES ========== */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #000;
+  background: black;
   color: white;
   overflow-x: hidden;
 }
@@ -12,79 +12,24 @@ canvas#starfield {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
   width: 100%;
   height: 100%;
+  z-index: -10;
+  background: black;
 }
 
-/* ====== Orb Styles ====== */
-.orb-behind {
-  position: absolute;
-  top: 150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, #1a001a 30%, #000);
-  border-radius: 50%;
-  box-shadow: 0 0 100px 40px rgba(255, 0, 255, 0.3), 0 0 80px 30px rgba(0, 255, 255, 0.2);
-  z-index: 1;
-}
-
-/* ====== Circular Rotating Text ====== */
-.rotating-text {
-  position: absolute;
-  top: 275px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  font-family: 'Noto Serif SC', serif;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 0 5px white;
-  animation: rotateText 20s linear infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@keyframes rotateText {
-  0% { transform: translateX(-50%) rotate(0deg); }
-  100% { transform: translateX(-50%) rotate(360deg); }
-}
-
-/* ====== Asteroid Skills ====== */
-.asteroid-skill {
-  position: absolute;
-  background: radial-gradient(circle, #111, #000);
-  border-radius: 50%;
-  padding: 1rem 1.5rem;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 0 15px #444;
-  z-index: 2;
-  animation: floatSkill 8s ease-in-out infinite alternate;
-}
-
-@keyframes floatSkill {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-20px); }
-}
-
-/* ====== Hero Section ====== */
+/* ========== HERO SECTION ========== */
 .hero-grid {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
   align-items: flex-start;
+  padding: 3rem;
 }
 
 .hero-left h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   line-height: 1.2;
+  color: white;
 }
 
 .hero-left h1 span {
@@ -92,68 +37,134 @@ canvas#starfield {
 }
 
 .hero-right {
-  text-align: right;
-  font-size: 1.2rem;
-  color: #ccc;
-  margin-top: 1rem;
-}
-
-/* ====== Quote ====== */
-.quote.poetic {
-  margin-top: 3rem;
-  text-align: center;
-  font-style: italic;
-  color: #ccc;
   font-size: 1.1rem;
-  padding: 0 2rem;
+  text-align: right;
+  color: #eee;
 }
 
-/* ====== Interests & Hobbies ====== */
-.interests-section {
+.orb-behind {
+  position: relative;
+  margin: 2rem auto;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, #150015, #000);
+  border-radius: 50%;
+  box-shadow:
+    0 0 50px #b92cff,
+    0 0 100px #00f6ff,
+    0 0 180px #ffffff33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(0deg);
+  animation: rotateText 20s linear infinite;
+}
+
+@keyframes rotateText {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orb-text span {
+  display: inline-block;
+  transform-origin: 0 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* ========== ASTEROID SKILLS ========== */
+.asteroid-field {
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  margin-top: 2rem;
+}
+
+.asteroid-skill {
+  position: absolute;
+  padding: 0.6rem 1rem;
+  background: #111;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
   text-align: center;
-  margin-top: 6rem;
+  box-shadow: 0 0 20px #fff3, 0 0 40px #fff1;
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(15px); }
+}
+
+/* ========== INTEREST CARDS ========== */
+.interests-section {
+  margin-top: 10rem;
+  text-align: center;
   padding: 2rem;
 }
 
 .interests-section h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .interests-section span {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
   padding: 0.6rem 1.2rem;
-  border-radius: 20px;
+  border-radius: 30px;
   margin: 0.5rem;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 10px #333;
+  color: #ddd;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
 }
 
-/* ====== Bottom Nav ====== */
+.interests-section span:hover {
+  color: #00f6ff;
+  border-color: #00f6ff;
+  background: rgba(0,255,255,0.1);
+}
+
+/* ========== BOTTOM NAV ========== */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: space-around;
-  padding: 1rem;
-  font-weight: bold;
-  font-size: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 5;
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  z-index: 10;
 }
 
-.bottom-nav a {
-  color: white;
+.bottom-nav .nav-item {
+  color: #fff;
   text-decoration: none;
-  transition: color 0.3s;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.bottom-nav a:hover {
+.bottom-nav .nav-item:hover {
   color: #00f6ff;
 }
