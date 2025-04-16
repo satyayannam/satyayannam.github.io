@@ -1,169 +1,178 @@
-/* ========== GLOBAL STYLES ========== */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  font-family: 'Segoe UI', sans-serif;
-  overflow-x: hidden;
-  color: #fff;
-}
-
-canvas#starfield {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background: black;
-}
-
-/* Orb (Main Circle) */
-.orb-behind {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #100010, #000);
-  box-shadow:
-    0 0 60px rgba(136, 0, 255, 0.6),
-    0 0 120px rgba(0, 255, 255, 0.3),
-    0 0 160px rgba(255, 255, 255, 0.1);
-  position: relative;
-  margin: auto;
-  margin-top: 3rem;
-  animation: eclipse-pulse 8s infinite ease-in-out;
-}
-
-@keyframes eclipse-pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow:
-      0 0 60px rgba(136, 0, 255, 0.6),
-      0 0 120px rgba(0, 255, 255, 0.3),
-      0 0 160px rgba(255, 255, 255, 0.1);
+/* =======================
+   Global Styles
+   ======================= */
+   body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #000;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
   }
-  50% {
+  
+  canvas#starfield {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: black;
+  }
+  
+  .hero-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero-left h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  
+  .hero-left span {
+    color: magenta;
+  }
+  
+  .hero-right {
+    text-align: right;
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.4;
+    padding-top: 0.5rem;
+  }
+  
+  /* ========== Glowing Moon Orb ========== */
+  .orb-behind {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, #150011, #000);
+    box-shadow:
+      0 0 60px #7020e0,
+      0 0 120px rgba(0, 255, 255, 0.5),
+      0 0 180px rgba(255, 0, 255, 0.2);
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    transform: translateX(-50%);
+    z-index: 0;
+    animation: eclipse-glow 6s ease-in-out infinite alternate;
+    cursor: pointer;
+  }
+  
+  @keyframes eclipse-glow {
+    0% {
+      box-shadow:
+        0 0 60px #7020e0,
+        0 0 120px rgba(0, 255, 255, 0.5),
+        0 0 180px rgba(255, 0, 255, 0.2);
+      transform: translateX(-50%) scale(1);
+    }
+    100% {
+      box-shadow:
+        0 0 90px #aa60ff,
+        0 0 160px rgba(255, 255, 255, 0.6),
+        0 0 200px rgba(0, 255, 255, 0.4);
+      transform: translateX(-50%) scale(1.05);
+    }
+  }
+  
+  /* ========== Asteroid Skills ========== */
+  .asteroid-field {
+    position: relative;
+    z-index: 1;
+    margin-top: 100px;
+  }
+  
+  .asteroid-skill {
+    position: absolute;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: white;
+    background: #111;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    animation: float-skill 12s infinite ease-in-out alternate;
+  }
+  
+  @keyframes float-skill {
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-30px); }
+  }
+  
+  .asteroid-skill:nth-child(odd) {
+    background: #1e0022;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+  }
+  
+  .asteroid-skill:nth-child(even) {
+    background: #00221e;
+    box-shadow: 0 0 20px rgba(0, 255, 128, 0.4);
+  }
+  
+  /* ========== Interests Cards Section ========== */
+  .interests-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+  }
+  
+  .interests-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .interests-section .card-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .interests-section .card-row span {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .interests-section .card-row span:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: cyan;
     transform: scale(1.1);
-    box-shadow:
-      0 0 80px rgba(255, 0, 255, 0.8),
-      0 0 140px rgba(0, 255, 255, 0.6),
-      0 0 180px rgba(255, 255, 255, 0.2);
   }
-}
-
-.orb-behind a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 280px;
-  font-family: 'Noto Serif SC', serif;
-  font-size: 1.3rem;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  animation: rotate-text 15s linear infinite;
-}
-
-@keyframes rotate-text {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Floating Skills */
-.asteroid-field {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.asteroid-skill {
-  position: absolute;
-  padding: 0.5rem 1.2rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.85rem;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-  animation: float-skill 12s infinite ease-in-out;
-}
-
-@keyframes float-skill {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  50% { transform: translateY(-20px) scale(1.05); opacity: 0.9; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-.hero-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 2rem;
-}
-
-.hero-left h1 {
-  font-size: 2.8rem;
-  margin: 0;
-  color: #00f6ff;
-}
-.hero-left h1 span {
-  color: #ff2fff;
-}
-
-.hero-right {
-  text-align: right;
-  color: #ddd;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.interests-section {
-  margin-top: 8rem;
-  text-align: center;
-}
-
-.interests-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.interests-section span {
-  display: inline-block;
-  margin: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-radius: 25px;
-  font-size: 0.95rem;
-  color: #fff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
-}
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: space-around;
-  padding: 1rem 0;
-  z-index: 1000;
-}
-
-.bottom-nav a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.bottom-nav a:hover {
-  color: #00f6ff;
-}
+  
+  /* ========== Bottom Nav ========== */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.7rem 0;
+    z-index: 10;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .bottom-nav .nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .bottom-nav .nav-item:hover {
+    color: #00f6ff;
+  }
