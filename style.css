@@ -1,10 +1,10 @@
-/* ========== GLOBAL STYLES ========== */
+/* ====== Global Styles ====== */
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background: #000;
-  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: white;
   overflow-x: hidden;
 }
 
@@ -12,143 +12,148 @@ canvas#starfield {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
+/* ====== Orb Styles ====== */
 .orb-behind {
   position: absolute;
-  top: 140px;
+  top: 150px;
   left: 50%;
   transform: translateX(-50%);
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, #1e002f, #000);
+  background: radial-gradient(circle, #1a001a 30%, #000);
   border-radius: 50%;
-  box-shadow: 0 0 60px rgba(170, 0, 255, 0.5), 0 0 100px rgba(0, 255, 255, 0.2);
-  z-index: 0;
+  box-shadow: 0 0 100px 40px rgba(255, 0, 255, 0.3), 0 0 80px 30px rgba(0, 255, 255, 0.2);
+  z-index: 1;
 }
 
-.orb-svg {
+/* ====== Circular Rotating Text ====== */
+.rotating-text {
   position: absolute;
-  top: 140px;
+  top: 275px;
   left: 50%;
   transform: translateX(-50%);
   width: 250px;
   height: 250px;
+  border-radius: 50%;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 5px white;
+  animation: rotateText 20s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes rotateText {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* ====== Asteroid Skills ====== */
+.asteroid-skill {
+  position: absolute;
+  background: radial-gradient(circle, #111, #000);
+  border-radius: 50%;
+  padding: 1rem 1.5rem;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 15px #444;
   z-index: 2;
-  animation: spin 40s linear infinite;
+  animation: floatSkill 8s ease-in-out infinite alternate;
 }
 
-.orb-text {
-  font-family: 'Noto Serif TC', serif;
-  fill: white;
-  font-size: 1rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.15em;
+@keyframes floatSkill {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-20px); }
 }
 
-@keyframes spin {
-  from {
-    transform: translateX(-50%) rotate(0deg);
-  }
-  to {
-    transform: translateX(-50%) rotate(360deg);
-  }
-}
-
+/* ====== Hero Section ====== */
 .hero-grid {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 3rem;
-  z-index: 5;
-  position: relative;
+  padding: 2rem;
+  align-items: flex-start;
 }
 
 .hero-left h1 {
   font-size: 2.8rem;
-  margin: 0;
   line-height: 1.2;
 }
 
-.hero-left span {
+.hero-left h1 span {
   color: #ff2fff;
 }
 
 .hero-right {
-  font-size: 1.2rem;
   text-align: right;
+  font-size: 1.2rem;
   color: #ccc;
+  margin-top: 1rem;
 }
 
-.asteroid-field {
-  position: relative;
-  margin-top: 2rem;
-}
-
-.asteroid-skill {
-  position: absolute;
-  background: #111;
-  padding: 0.5rem 1rem;
-  border-radius: 50%;
-  font-weight: bold;
-  color: white;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+/* ====== Quote ====== */
+.quote.poetic {
+  margin-top: 3rem;
   text-align: center;
-  animation: float 6s ease-in-out infinite alternate;
+  font-style: italic;
+  color: #ccc;
+  font-size: 1.1rem;
+  padding: 0 2rem;
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0px, 0px);
-  }
-  100% {
-    transform: translate(10px, -10px);
-  }
-}
-
+/* ====== Interests & Hobbies ====== */
 .interests-section {
   text-align: center;
-  margin: 3rem auto;
+  margin-top: 6rem;
+  padding: 2rem;
 }
 
 .interests-section h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #eee;
 }
 
 .interests-section span {
   display: inline-block;
-  margin: 0.5rem;
-  padding: 0.6rem 1rem;
   background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.6rem 1.2rem;
   border-radius: 20px;
-  color: #fff;
-  font-weight: 500;
+  margin: 0.5rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px #333;
 }
 
+/* ====== Bottom Nav ====== */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.9);
+  background: rgba(10, 10, 10, 0.8);
   display: flex;
   justify-content: space-around;
-  padding: 1rem 0;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 10;
+  z-index: 5;
 }
 
-.nav-item {
-  color: #fff;
+.bottom-nav a {
+  color: white;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
+  transition: color 0.3s;
 }
 
-.nav-item:hover {
+.bottom-nav a:hover {
   color: #00f6ff;
 }
