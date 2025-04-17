@@ -1,174 +1,227 @@
-/* ========== GLOBAL RESET ========== */
-body, html {
+/* === RESET === */
+* {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  background: black;
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
 }
 
-canvas#starfield {
+body.dark-home {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* === STARFIELD === */
+#starfield {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: -2;
+  width: 100%;
+  height: 100%;
   background: black;
 }
 
-/* ========== MAIN ORB ========== */
-.orb {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  margin: 5rem auto;
+/* === MOON ORB === */
+.orb-container {
+  display: block;
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(40,0,60,1) 0%, rgba(0,0,0,1) 80%);
+  z-index: 1;
+}
+
+.orb-moon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #160016 0%, #050005 80%);
   box-shadow:
     0 0 60px rgba(255, 0, 255, 0.3),
-    0 0 120px rgba(0, 255, 255, 0.2),
-    0 0 160px rgba(255, 255, 255, 0.05);
-  transition: box-shadow 1.5s ease-in-out, background 1.5s ease-in-out;
-  animation: glowCycle 6s ease-in-out infinite;
-  z-index: 0;
-  cursor: pointer;
+    0 0 100px rgba(0, 255, 255, 0.2),
+    0 0 180px rgba(255, 255, 255, 0.1);
+  animation: pulseMoon 5s infinite alternate;
 }
 
-@keyframes glowCycle {
+@keyframes pulseMoon {
   0% {
+    transform: scale(1);
     box-shadow:
-      0 0 30px rgba(255, 0, 255, 0.1),
-      0 0 80px rgba(0, 255, 255, 0.08),
-      0 0 100px rgba(255, 255, 255, 0.02);
-    background: radial-gradient(circle, rgba(30,0,45,1) 0%, rgba(0,0,0,1) 80%);
-  }
-  50% {
-    box-shadow:
-      0 0 60px rgba(255, 0, 255, 0.4),
-      0 0 140px rgba(0, 255, 255, 0.3),
-      0 0 180px rgba(255, 255, 255, 0.1);
-    background: radial-gradient(circle, rgba(50,0,70,1) 0%, rgba(0,0,0,1) 80%);
+      0 0 40px rgba(255, 0, 255, 0.15),
+      0 0 80px rgba(0, 255, 255, 0.1),
+      0 0 120px rgba(255, 255, 255, 0.05);
   }
   100% {
+    transform: scale(1.05);
     box-shadow:
-      0 0 30px rgba(255, 0, 255, 0.1),
-      0 0 80px rgba(0, 255, 255, 0.08),
-      0 0 100px rgba(255, 255, 255, 0.02);
-    background: radial-gradient(circle, rgba(30,0,45,1) 0%, rgba(0,0,0,1) 80%);
+      0 0 60px rgba(255, 0, 255, 0.4),
+      0 0 120px rgba(0, 255, 255, 0.3),
+      0 0 200px rgba(255, 255, 255, 0.2);
   }
 }
 
-/* ========== ASTEROID SKILLS ========== */
-.asteroid-field {
-  position: relative;
+/* === HERO AREA === */
+.hero-grid {
+  position: absolute;
+  top: 10%;
   width: 100%;
-  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.hero-left h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.hero-left h1 span {
+  color: #ff2fff;
+}
+
+.hero-right {
+  text-align: right;
+  font-size: 1.1rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+/* === ASTEROID SKILLS === */
+.asteroid-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 0;
 }
 
 .asteroid-skill {
   position: absolute;
-  background: #111;
-  color: white;
   padding: 0.6rem 1.2rem;
   border-radius: 50%;
+  background-color: #111;
   font-weight: bold;
-  box-shadow: 0 0 20px rgba(255,255,255,0.1);
-  animation: drift 8s ease-in-out infinite alternate;
-  pointer-events: all;
-  transition: transform 0.3s ease;
+  color: white;
   text-align: center;
-  white-space: nowrap;
+  min-width: 100px;
+  filter: brightness(120%);
+  transition: transform 0.3s;
+  animation: floatSkill 6s ease-in-out infinite alternate;
 }
 
-.asteroid-skill:hover {
-  transform: scale(1.1);
-  background-color: #222;
+.asteroid-skill.pink {
+  box-shadow: 0 0 25px 10px rgba(255, 0, 255, 0.2);
+  background: radial-gradient(circle, #3a002d 20%, #000);
 }
 
-@keyframes drift {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-20px) rotate(5deg); }
+.asteroid-skill.green {
+  box-shadow: 0 0 25px 10px rgba(0, 255, 120, 0.15);
+  background: radial-gradient(circle, #003a1f 20%, #000);
 }
 
-/* ========== INTERESTS ========== */
+.asteroid-skill.purple {
+  box-shadow: 0 0 25px 10px rgba(170, 0, 255, 0.2);
+  background: radial-gradient(circle, #20003a 20%, #000);
+}
+
+.moving {
+  animation: floatSkill 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatSkill {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  100% {
+    transform: translateY(-30px) translateX(30px);
+  }
+}
+
+/* === INTERESTS & HOBBIES === */
 .interests-section {
+  margin-top: 100vh;
+  padding: 3rem 1rem;
   text-align: center;
-  padding: 4rem 1rem 6rem;
-  background: black;
-  z-index: 2;
 }
 
 .interests-section h2 {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
 }
 
-.interests-section span {
-  display: inline-block;
-  margin: 0.5rem;
+.interest-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.interest-cards span {
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.05);
-  color: #eee;
-  font-weight: 500;
-  backdrop-filter: blur(3px);
-  transition: background 0.3s ease;
+  border-radius: 25px;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-.interests-section span:hover {
-  background: rgba(0,255,255,0.1);
+.interest-cards span:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #00f6ff;
   color: #00f6ff;
 }
 
-/* ========== NAV BAR ========== */
+/* === BOTTOM NAV === */
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.9);
+  background-color: rgba(10, 10, 10, 0.7);
   display: flex;
   justify-content: space-around;
-  padding: 1rem 0;
-  z-index: 100;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.7rem 0;
   font-weight: bold;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 10;
 }
 
-.bottom-nav a {
+.nav-item {
   color: white;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
-.bottom-nav a:hover {
+.nav-item:hover {
   color: #00f6ff;
 }
 
-/* ========== TYPOGRAPHY ========== */
-.hero-grid {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 2rem;
-}
+/* === Responsive Fixes === */
+@media (max-width: 768px) {
+  .hero-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-.hero-left h1 {
-  font-size: 3rem;
-  color: white;
-}
+  .hero-right {
+    margin-top: 1rem;
+  }
 
-.hero-left h1 span {
-  color: magenta;
-}
-
-.hero-right {
-  text-align: right;
-  color: #ccc;
-  font-size: 1.1rem;
+  .orb-container {
+    width: 200px;
+    height: 200px;
+  }
 }
