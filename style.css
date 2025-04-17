@@ -24,6 +24,8 @@ canvas#starfield {
   display: flex;
   justify-content: space-between;
   padding: 2rem;
+  z-index: 2;
+  position: relative;
 }
 
 .hero-left h1 {
@@ -42,44 +44,56 @@ canvas#starfield {
   padding-top: 1rem;
 }
 
-.orb-behind {
+/* Glowing Moon Orb */
+.main-moon-link {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #150015, #000000);
-  box-shadow:
-    0 0 50px rgba(128, 0, 255, 0.8),
-    0 0 100px rgba(0, 255, 255, 0.4),
-    0 0 150px rgba(255, 255, 255, 0.1);
-  animation: eclipse-pulse 6s infinite ease-in-out;
-  z-index: 1;
-  cursor: pointer;
+  text-decoration: none;
+  z-index: 5;
 }
 
-@keyframes eclipse-pulse {
+.main-moon-glow {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.2), transparent 70%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 60px rgba(255, 0, 255, 0.5),
+    0 0 120px rgba(0, 255, 255, 0.3),
+    0 0 160px rgba(255, 255, 255, 0.1);
+  animation: glow-pulse 6s infinite ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-moon {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at center, #120012 0%, #000000 90%);
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+@keyframes glow-pulse {
   0%, 100% {
-    box-shadow:
-      0 0 50px rgba(128, 0, 255, 0.8),
-      0 0 100px rgba(0, 255, 255, 0.4),
-      0 0 150px rgba(255, 255, 255, 0.1);
+    transform: scale(1);
+    opacity: 1;
   }
   50% {
-    box-shadow:
-      0 0 80px rgba(128, 0, 255, 1),
-      0 0 120px rgba(0, 255, 255, 0.5),
-      0 0 180px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    opacity: 0.9;
   }
 }
 
+/* Asteroid Skills */
 .asteroid-field {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .asteroid-skill {
@@ -104,9 +118,10 @@ canvas#starfield {
   100% { transform: translateY(-15px); }
 }
 
+/* Interests Section */
 .interests-section {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   text-align: center;
   margin-top: 100vh;
   padding: 2rem 1rem;
@@ -117,9 +132,15 @@ canvas#starfield {
   margin-bottom: 1rem;
 }
 
-.interests-section span {
+.card-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card-row span {
   display: inline-block;
-  margin: 0.5rem;
   padding: 0.6rem 1.2rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -129,11 +150,12 @@ canvas#starfield {
   transition: all 0.3s;
 }
 
-.interests-section span:hover {
+.card-row span:hover {
   color: #00f6ff;
   border-color: #00f6ff;
 }
 
+/* Bottom Navigation */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -147,6 +169,7 @@ canvas#starfield {
   z-index: 10;
   font-weight: bold;
   font-size: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bottom-nav .nav-item {
