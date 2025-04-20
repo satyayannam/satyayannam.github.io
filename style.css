@@ -1,9 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  background: #000;
+  overflow-x: hidden;
   font-family: 'Orbitron', sans-serif;
-  overflow: hidden;
+  background: black;
   color: white;
 }
 
@@ -11,103 +11,96 @@ canvas#starfield {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -2;
+  z-index: -1;
 }
 
 .hero-grid {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
-  position: relative;
-  z-index: 1;
+  padding: 3rem 4rem;
+  align-items: center;
 }
 
 .hero-left h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 0;
-  color: cyan;
 }
 
-.hero-left h1 span {
-  color: fuchsia;
+.hero-left span {
+  color: magenta;
 }
 
 .hero-right {
   text-align: right;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #ccc;
 }
 
-/* Moon */
-.moon-wrapper {
+.moon {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  text-decoration: none;
-  z-index: 1;
-}
-
-.moon {
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, #120012 10%, #000000 90%);
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, #190018 30%, #000000 100%);
   box-shadow:
-    0 0 60px rgba(255, 0, 255, 0.5),
-    0 0 100px rgba(0, 255, 255, 0.3),
-    0 0 160px rgba(255, 255, 255, 0.1);
-  animation: pulse-eclipse 4s ease-in-out infinite;
+    0 0 80px rgba(204, 0, 255, 0.5),
+    0 0 140px rgba(0, 255, 255, 0.2),
+    0 0 220px rgba(255, 255, 255, 0.08);
+  animation: glow-pulse 6s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 10;
 }
 
-@keyframes pulse-eclipse {
+@keyframes glow-pulse {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
+    box-shadow:
+      0 0 80px rgba(204, 0, 255, 0.5),
+      0 0 140px rgba(0, 255, 255, 0.2),
+      0 0 220px rgba(255, 255, 255, 0.08);
   }
   50% {
-    transform: translate(-50%, -50%) scale(0.92);
-    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow:
+      0 0 60px rgba(204, 0, 255, 0.2),
+      0 0 100px rgba(0, 255, 255, 0.1),
+      0 0 180px rgba(255, 255, 255, 0.04);
   }
 }
 
-/* Asteroids (Skills) */
-.asteroid-field {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  z-index: 1;
+.planets {
+  position: relative;
+  z-index: 5;
 }
 
-.planet-skill {
+.planet {
+  position: absolute;
+  padding: 0.6rem 1.3rem;
   background: #111;
-  padding: 0.8rem 1.2rem;
-  border-radius: 50%;
   color: white;
+  border-radius: 50%;
   font-weight: bold;
   font-size: 0.9rem;
-  animation: float 6s ease-in-out infinite alternate;
-  transition: 0.3s;
+  box-shadow: 0 0 18px #ff00ff;
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+.planet.green {
+  box-shadow: 0 0 18px #00ff99;
+}
+
+.planet.pink {
+  box-shadow: 0 0 18px #ff009d;
+}
+
+.planet.purple {
+  box-shadow: 0 0 18px #8b00ff;
 }
 
 @keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10px); }
-}
-
-/* Different Glows */
-.glow-pink {
-  box-shadow: 0 0 20px #ff2fff, 0 0 30px #ff2fff;
-}
-.glow-green {
-  box-shadow: 0 0 20px #00ff99, 0 0 30px #00ff99;
-}
-.glow-blue {
-  box-shadow: 0 0 20px #00f6ff, 0 0 30px #00f6ff;
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-20px); }
 }
