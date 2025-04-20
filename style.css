@@ -1,106 +1,129 @@
-body {
+/* Reset */
+* {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  font-family: 'Orbitron', sans-serif;
-  background: black;
-  color: white;
+  box-sizing: border-box;
 }
 
-canvas#starfield {
+body {
+  background: black;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Starfield background */
+#starfield {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
 }
 
+/* Hero Text */
 .hero-grid {
   display: flex;
   justify-content: space-between;
-  padding: 3rem 4rem;
   align-items: center;
+  padding: 2rem;
 }
 
 .hero-left h1 {
   font-size: 3rem;
-  margin: 0;
+  color: #00f6ff;
 }
 
-.hero-left span {
-  color: magenta;
+.hero-left h1 span {
+  color: #ff2fff;
 }
 
 .hero-right {
-  text-align: right;
   font-size: 1.1rem;
-  color: #ccc;
+  text-align: right;
 }
 
-.moon {
+/* Glowing Moon */
+.orb {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, #190018 30%, #000000 100%);
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #1d001d 40%, #000000 100%);
   box-shadow:
-    0 0 80px rgba(204, 0, 255, 0.5),
-    0 0 140px rgba(0, 255, 255, 0.2),
-    0 0 220px rgba(255, 255, 255, 0.08);
-  animation: glow-pulse 6s ease-in-out infinite;
+    0 0 60px rgba(255, 0, 255, 0.6),
+    0 0 120px rgba(0, 255, 255, 0.3),
+    0 0 180px rgba(255, 255, 255, 0.1);
+  animation: moon-glow 4s ease-in-out infinite;
   cursor: pointer;
-  z-index: 10;
+  z-index: 2;
 }
 
-@keyframes glow-pulse {
+@keyframes moon-glow {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    box-shadow:
-      0 0 80px rgba(204, 0, 255, 0.5),
-      0 0 140px rgba(0, 255, 255, 0.2),
-      0 0 220px rgba(255, 255, 255, 0.08);
+    opacity: 1;
+    filter: brightness(1);
   }
   50% {
-    transform: translate(-50%, -50%) scale(0.95);
-    box-shadow:
-      0 0 60px rgba(204, 0, 255, 0.2),
-      0 0 100px rgba(0, 255, 255, 0.1),
-      0 0 180px rgba(255, 255, 255, 0.04);
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.85;
+    filter: brightness(0.7);
   }
 }
 
-.planets {
-  position: relative;
-  z-index: 5;
-}
-
-.planet {
+/* Planet-like skills */
+.planets .planet {
   position: absolute;
-  padding: 0.6rem 1.3rem;
-  background: #111;
-  color: white;
+  background: black;
+  padding: 0.8rem 1.4rem;
   border-radius: 50%;
+  color: white;
   font-weight: bold;
-  font-size: 0.9rem;
-  box-shadow: 0 0 18px #ff00ff;
-  animation: float 8s ease-in-out infinite alternate;
-}
-
-.planet.green {
-  box-shadow: 0 0 18px #00ff99;
-}
-
-.planet.pink {
-  box-shadow: 0 0 18px #ff009d;
-}
-
-.planet.purple {
-  box-shadow: 0 0 18px #8b00ff;
+  text-align: center;
+  animation: float 6s infinite ease-in-out alternate;
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.3),
+    0 0 30px rgba(0, 255, 127, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
 }
 
 @keyframes float {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-20px); }
+}
+
+/* Interests & Hobbies Section */
+.interests-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 10rem;
+}
+
+.interests-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.interest-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.interest-cards .card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+  color: #fff;
 }
