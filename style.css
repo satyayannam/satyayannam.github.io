@@ -1,163 +1,113 @@
-/* Reset & Base */
-* {
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
+  font-family: 'Inter', sans-serif;
   background-color: #fff;
-  color: #000;
-  line-height: 1.6;
+  color: #111;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 2rem;
-}
-
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background: white;
+  z-index: 100;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background: linear-gradient(45deg, #000, #333);
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: pulse 3s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-nav ul {
+.nav-links {
   display: flex;
   gap: 2rem;
-  list-style: none;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-nav ul li a {
+.nav-links a {
   text-decoration: none;
-  color: #000;
-  font-weight: bold;
+  color: black;
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+.nav-links a:hover {
   color: #555;
 }
 
-/* Hero Section */
-.hero {
-  padding: 6rem 2rem;
-  text-align: center;
-  background-color: #fafafa;
+.scroll-text {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30%;
+  font-size: 0.85rem;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 600;
+.scroll-text span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 10s linear infinite;
 }
 
-.hero p {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: #444;
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-/* Skills */
-.skills {
-  background: #fff;
-  padding: 4rem 2rem;
-  text-align: center;
+main {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.skills h2 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.skill-list span {
-  background: #000;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 500;
-  transition: transform 0.3s ease;
-}
-
-.skill-list span:hover {
-  transform: translateY(-4px);
-}
-
-/* Projects */
-.projects {
-  background: #f8f8f8;
-  padding: 4rem 2rem;
-}
-
-.projects h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
 .project-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .card {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
+  background-color: #fafafa;
+  border: 1px solid #e5e5e5;
   padding: 1.5rem;
+  border-radius: 12px;
   transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-top: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .card p {
-  color: #555;
   font-size: 0.95rem;
+  color: #444;
 }
 
-/* Footer */
-footer {
+.card a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.footer {
   text-align: center;
-  padding: 2rem;
-  background: #000;
-  color: #fff;
-  font-size: 0.9rem;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: #777;
 }
