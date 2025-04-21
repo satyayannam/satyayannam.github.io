@@ -1,91 +1,154 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: black;
-  overflow: hidden;
-  font-family: sans-serif;
-  color: white;
+/* Variables for theme */
+:root {
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+  --neon-purple: #7d00ff;
+  --neon-green: #00ff99;
+  --deep-space: #0c0c0c;
+  --white: #fff;
 }
 
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: var(--deep-space);
+  overflow-x: hidden;
+  color: var(--white);
+}
+
+/* Starfield Background */
 canvas#starfield {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -2;
+  z-index: 0;
 }
 
-.hero-left {
-  position: absolute;
-  top: 40px;
-  left: 40px;
+/* Hero Content */
+.hero-grid {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem;
+  z-index: 1;
 }
 
 .hero-left h1 {
-  font-size: 3rem;
-  color: cyan;
+  font-size: 3.5rem;
+  line-height: 1.2;
 }
 
-.hero-left span {
-  color: magenta;
+.hero-left h1 span {
+  color: var(--neon-pink);
 }
 
 .hero-right {
-  position: absolute;
-  top: 40px;
-  right: 40px;
   text-align: right;
   font-size: 1rem;
   color: #ccc;
 }
 
-/* Glowing Moon Button */
-.moon {
+/* Moon Button */
+.moon-button {
   position: absolute;
-  top: 50%;
+  top: 45vh;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle at center, #1e002a 30%, #000 80%);
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, #150015, #000);
-  box-shadow:
-    0 0 60px rgba(255, 0, 255, 0.4),
-    0 0 120px rgba(0, 255, 255, 0.3),
-    0 0 160px rgba(255, 255, 255, 0.1);
-  z-index: 1;
-  animation: glow-pulse 4s ease-in-out infinite;
+  box-shadow: 0 0 40px 10px var(--neon-purple), 0 0 120px 30px #001111;
+  cursor: pointer;
+  z-index: 2;
+  animation: pulse 6s ease-in-out infinite;
 }
 
-@keyframes glow-pulse {
+@keyframes pulse {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    box-shadow:
-      0 0 60px rgba(255, 0, 255, 0.4),
-      0 0 120px rgba(0, 255, 255, 0.3),
-      0 0 160px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px 10px var(--neon-purple), 0 0 80px 10px #000;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.05);
-    box-shadow:
-      0 0 30px rgba(255, 0, 255, 0.1),
-      0 0 60px rgba(0, 255, 255, 0.1),
-      0 0 80px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 80px 20px var(--neon-blue), 0 0 160px 40px #000;
   }
 }
 
-/* Planets (skills) */
-.planet {
+/* Planets (Skills) */
+.planet-skill {
   position: absolute;
-  padding: 0.6em 1.2em;
-  border-radius: 50%;
+  padding: 0.7rem 1.2rem;
   background: black;
-  color: white;
+  color: var(--white);
+  border-radius: 50%;
+  text-align: center;
   font-weight: bold;
-  box-shadow: 0 0 25px rgba(255, 0, 255, 0.5);
-  animation: float 10s infinite ease-in-out alternate;
+  box-shadow: 0 0 20px var(--neon-pink);
+  animation: drift 10s ease-in-out infinite alternate;
 }
 
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-20px); }
+.planet-skill:nth-child(even) {
+  box-shadow: 0 0 20px var(--neon-green);
+}
+
+.planet-skill:nth-child(3n) {
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Interests Section */
+.interests-section {
+  margin-top: 80vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.interests-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--neon-pink);
+}
+
+.interests-section .card {
+  display: inline-block;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+  color: var(--white);
+}
+
+/* Custom Navigation */
+nav.cosmic-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+}
+
+nav.cosmic-nav a {
+  text-decoration: none;
+  color: var(--neon-blue);
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+nav.cosmic-nav a:hover {
+  color: var(--neon-pink);
 }
