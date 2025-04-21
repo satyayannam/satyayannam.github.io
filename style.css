@@ -1,154 +1,147 @@
-/* Variables for theme */
-:root {
-  --neon-pink: #ff00ff;
-  --neon-blue: #00ffff;
-  --neon-purple: #7d00ff;
-  --neon-green: #00ff99;
-  --deep-space: #0c0c0c;
-  --white: #fff;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Orbitron', sans-serif;
-  background: var(--deep-space);
+  background: black;
+  color: white;
   overflow-x: hidden;
-  color: var(--white);
 }
 
-/* Starfield Background */
 canvas#starfield {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
-/* Hero Content */
 .hero-grid {
-  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 4rem;
-  z-index: 1;
+  align-items: start;
+  padding: 2rem 3rem;
 }
 
 .hero-left h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   line-height: 1.2;
+  margin: 0;
+  color: white;
 }
 
 .hero-left h1 span {
-  color: var(--neon-pink);
+  color: #ff33f7;
 }
 
 .hero-right {
   text-align: right;
-  font-size: 1rem;
-  color: #ccc;
+  font-size: 1.2rem;
 }
 
-/* Moon Button */
-.moon-button {
+.moon-orb {
   position: absolute;
-  top: 45vh;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle at center, #1e002a 30%, #000 80%);
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  box-shadow: 0 0 40px 10px var(--neon-purple), 0 0 120px 30px #001111;
+  background: radial-gradient(circle at center, #140014 40%, #000 100%);
+  box-shadow: 0 0 60px 20px rgba(115, 57, 172, 0.6), 0 0 180px 80px rgba(0, 200, 255, 0.05);
+  animation: eclipsePulse 6s ease-in-out infinite;
   cursor: pointer;
-  z-index: 2;
-  animation: pulse 6s ease-in-out infinite;
+  z-index: 5;
 }
 
-@keyframes pulse {
+@keyframes eclipsePulse {
   0%, 100% {
-    box-shadow: 0 0 40px 10px var(--neon-purple), 0 0 80px 10px #000;
+    box-shadow: 0 0 60px 20px rgba(115, 57, 172, 0.6), 0 0 180px 80px rgba(0, 200, 255, 0.05);
   }
   50% {
-    box-shadow: 0 0 80px 20px var(--neon-blue), 0 0 160px 40px #000;
+    box-shadow: 0 0 30px 10px rgba(115, 57, 172, 0.4), 0 0 90px 40px rgba(0, 200, 255, 0.02);
   }
 }
 
-/* Planets (Skills) */
+.asteroid-field {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .planet-skill {
   position: absolute;
-  padding: 0.7rem 1.2rem;
-  background: black;
-  color: var(--white);
   border-radius: 50%;
-  text-align: center;
+  padding: 0.8rem 1.2rem;
+  color: white;
   font-weight: bold;
-  box-shadow: 0 0 20px var(--neon-pink);
-  animation: drift 10s ease-in-out infinite alternate;
+  background: black;
+  box-shadow: 0 0 30px 5px rgba(255, 0, 255, 0.4);
+  animation: floatPlanet 10s ease-in-out infinite alternate;
+  pointer-events: auto;
+  text-align: center;
 }
 
 .planet-skill:nth-child(even) {
-  box-shadow: 0 0 20px var(--neon-green);
+  animation-duration: 12s;
 }
 
-.planet-skill:nth-child(3n) {
-  box-shadow: 0 0 20px var(--neon-blue);
+@keyframes floatPlanet {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-20px); }
 }
 
-@keyframes drift {
-  0% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(-20px);
-  }
-}
-
-/* Interests Section */
 .interests-section {
-  margin-top: 80vh;
-  padding: 2rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
 }
 
 .interests-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--neon-pink);
+  font-size: 1.8rem;
+  color: #fff;
 }
 
-.interests-section .card {
+.interest-card {
   display: inline-block;
-  margin: 1rem;
-  padding: 1rem 2rem;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 1px solid var(--neon-blue);
-  box-shadow: 0 0 10px var(--neon-blue);
-  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
 }
 
-/* Custom Navigation */
-nav.cosmic-nav {
+.interest-card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+nav.menu {
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  top: 1rem;
+  left: 1rem;
   display: flex;
-  justify-content: space-around;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 99;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+  z-index: 10;
 }
 
-nav.cosmic-nav a {
+nav.menu a {
+  color: #00ffff;
   text-decoration: none;
-  color: var(--neon-blue);
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 
-nav.cosmic-nav a:hover {
-  color: var(--neon-pink);
+nav.menu a:hover {
+  text-shadow: 0 0 8px #00ffff;
+  transform: translateX(5px);
 }
