@@ -157,29 +157,31 @@ main {
 
 header {
   width: 100%;
-  background: white;
-  padding: 10px 30px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
   font-family: 'Segoe UI', sans-serif;
+  padding: 10px 20px;
 }
 
-.nav-bar {
+.header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
+/* Nav Menu */
 .nav-links {
   display: flex;
-  gap: 2rem;
-  font-weight: bold;
+  gap: 1.8rem;
+  font-weight: 600;
   font-size: 1rem;
 }
 
 .nav-links a {
-  text-decoration: none;
   color: #111;
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
@@ -187,11 +189,12 @@ header {
   color: #0077b5;
 }
 
+/* Social Icons */
 .nav-social {
   display: flex;
+  align-items: center;
   gap: 1rem;
   font-size: 1.2rem;
-  margin-left: 2rem;
 }
 
 .nav-social a {
@@ -204,13 +207,28 @@ header {
   transform: scale(1.1);
 }
 
-.scroll-text {
+/* Scroll Text */
+.scroll-container {
   flex-grow: 1;
-  font-size: 0.9rem;
-  color: #444;
-  text-align: right;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-  margin-left: auto;
+  white-space: nowrap;
+  position: relative;
+  min-width: 300px;
+}
+
+.scroll-text {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: #444;
+  animation: scroll-left 18s linear infinite;
+  padding-left: 20px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
