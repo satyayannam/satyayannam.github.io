@@ -154,3 +154,33 @@ main {
   font-size: 0.85rem;
   color: #777;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-left {
+  display: flex;
+  gap: 2rem;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+  font-size: 1.3rem;
+}
+
+.social-icons a {
+  color: #111;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #0077b5; /* LinkedIn blue or any custom accent */
+}
