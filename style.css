@@ -155,32 +155,62 @@ main {
   color: #777;
 }
 
-nav {
+header {
+  width: 100%;
+  background: white;
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ccc;
+  flex-wrap: wrap;
 }
 
-.nav-left {
+.nav-links {
   display: flex;
   gap: 2rem;
   font-weight: bold;
+  font-size: 1rem;
 }
 
-.social-icons {
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #0077b5;
+}
+
+.nav-social {
   display: flex;
   gap: 1rem;
-  margin-left: auto;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  margin-left: 2rem;
 }
 
-.social-icons a {
+.nav-social a {
   color: #111;
-  transition: color 0.3s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.social-icons a:hover {
-  color: #0077b5; /* LinkedIn blue or any custom accent */
+.nav-social a:hover {
+  color: #0077b5;
+  transform: scale(1.1);
+}
+
+.scroll-text {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  color: #444;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: auto;
 }
