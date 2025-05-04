@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behavioral AI | Confidential</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .lock-box {
+      background: white;
+      padding: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #0077b5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #005b90;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+    .content {
+      display: none;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="lock-box" id="lockScreen">
+    <h2>🔒 Confidential Page</h2>
+    <p>This page is protected. Enter the password to continue.</p>
+    <input type="password" id="password" placeholder="Enter password" />
+    <div class="error" id="errorMsg"></div>
+    <button onclick="unlockPage()">Unlock</button>
+  </div>
+
+  <div class="content" id="confidentialContent">
+    <h1>🧠 Behavioral AI Model</h1>
+    <p>This section contains confidential information about a behavioral prediction engine developed to understand, adapt, and respond to user patterns in real-time using neural logic layers and personalized memory frameworks.</p>
+    <p><strong>Status:</strong> Prototype in development phase. Restricted for internal access.</p>
+    <!-- Add project details below when ready -->
+  </div>
+
+  <script>
+    const correctPassword = "satya123"; // Change this to your real secret
+
+    function unlockPage() {
+      const input = document.getElementById("password").value;
+      const errorMsg = document.getElementById("errorMsg");
+      if (input === correctPassword) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("confidentialContent").style.display = "block";
+      } else {
+        errorMsg.textContent = "Incorrect password. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
