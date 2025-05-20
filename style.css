@@ -82,8 +82,8 @@ body.dark-mode header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.2rem;
 }
+
 
 .nav-social a {
   color: #111;
