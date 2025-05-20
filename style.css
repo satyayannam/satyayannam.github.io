@@ -111,9 +111,9 @@ body.dark-mode header {
 .nav-social {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1.25rem;
 }
+
 
 .scroll-container {
   width: 100%;
