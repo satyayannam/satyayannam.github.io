@@ -1,195 +1,98 @@
-/* Reset + Base */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #fff;
-  color: #111;
-}
-
-header {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  font-family: 'Inter', sans-serif;
-  padding: 10px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-/* Left-aligned Nav Links */
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
-.nav-links a {
-  color: #111;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #0077b5;
-}
-
-/* Center-aligned Social Icons */
-.nav-social {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.2rem;
-}
-
-.nav-social a {
-  color: #111;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.nav-social a:hover {
-  color: #0077b5;
-  transform: scale(1.1);
-}
-
-/* Right-aligned Scrolling Text */
-.scroll-container {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  overflow: hidden;
-  white-space: nowrap;
-  max-width: 50vw;
-}
-
-.scroll-text {
-  display: inline-block;
-  font-size: 0.95rem;
-  color: #444;
-  animation: scroll-left 20s linear infinite;
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Main Layout */
-main {
+/* ===== Contact Page Styles ===== */
+.contact-wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
   padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
 }
 
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-/* Intro Section */
-.intro {
+.contact-header {
+  text-align: center;
   margin-bottom: 2rem;
-  max-width: 800px;
 }
 
-.intro .tagline {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #555;
+.contact-header h1 {
+  font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
-.intro .description {
-  font-size: 1.1rem;
-  color: #222;
-  margin-bottom: 1rem;
-  line-height: 1.6;
+.contact-header p {
+  color: #555;
+  font-size: 1.05rem;
 }
 
-/* Skills */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
+.contact-info {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
-.skill-pill {
-  background-color: #f1f1f1;
-  color: #111;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  font-size: 0.95rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
+.contact-info p {
+  margin: 0.5rem 0;
 }
 
-.skill-pill:hover {
-  transform: scale(1.05);
-  background-color: #eaeaea;
-}
-
-/* Projects Section */
-.project-cards {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.card {
-  background-color: #fafafa;
-  border: 1px solid #e5e5e5;
-  padding: 1.5rem;
-  border-radius: 12px;
-  transition: box-shadow 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-  margin-top: 0;
-  font-size: 1.3rem;
+.contact-info a {
+  color: #0077b5;
+  text-decoration: none;
   font-weight: 600;
 }
 
-.card p {
-  font-size: 0.95rem;
-  color: #444;
-}
-
-.card a {
-  display: inline-block;
-  margin-top: 0.75rem;
-  color: #1a73e8;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.card a:hover {
+.contact-info a:hover {
   text-decoration: underline;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  margin-top: 4rem;
-  font-size: 0.85rem;
-  color: #777;
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #0077b5;
+  color: white;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #005b90;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 600px) {
+  .contact-wrapper {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+
+  .contact-form {
+    padding: 0;
+  }
+
+  .contact-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-header p {
+    font-size: 0.95rem;
+  }
 }
