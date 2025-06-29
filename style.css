@@ -1,303 +1,115 @@
-/* ===== Global Reset & Base ===== */
-html, body {
+/* styles.css - Shared base for all other sections (header, nav, footer) */
+
+body {
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #fff;
   color: #111;
-  overflow-x: hidden;
-  width: 100%;
-  scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #fff;
 }
 
-body.dark-mode {
-  background-color: #121212;
-  color: #eaeaea;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
 }
 
-body.dark-mode .card {
-  background-color: #1e1e1e;
-  border-color: #333;
-}
-
-body.dark-mode .nav-links a,
-body.dark-mode .nav-social a,
-body.dark-mode .scroll-text {
-  color: #eaeaea;
-}
-
-body.dark-mode .nav-links a:hover,
-body.dark-mode .nav-social a:hover {
-  color: #1a73e8;
-}
-
-/* ===== Header ===== */
 header {
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 12px 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  transition: background-color 0.3s ease;
 }
 
-body.dark-mode header {
-  background-color: #1a1a1a;
-  border-color: #333;
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
-.header-container {
+nav {
+  margin-top: 0.75rem;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
   gap: 1.5rem;
-  font-weight: 600;
-  font-size: 1rem;
+  flex-wrap: wrap;
 }
 
-.nav-links a {
-  color: #111;
+nav a {
+  color: #333;
   text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #0077b5;
+nav a:hover {
+  color: #1a73e8;
 }
 
-
-
-.nav-social a {
-  color: #111;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.nav-social a:hover {
-  color: #0077b5;
-  transform: scale(1.1);
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.2);
-  color: #0077b5;
-}
-
-
-.nav-social {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-
-.scroll-container {
-  width: 100%;
-  overflow: hidden;
-  background: #f8f8f8;
-  border-top: 1px solid #ddd;
-  padding: 0.5rem 1rem;
-}
-
-body.dark-mode .scroll-container {
-  background: #1e1e1e;
-  border-color: #333;
-}
-
-.scroll-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-left 20s linear infinite;
-  color: #444;
-  font-size: 0.95rem;
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* ===== Main Layout ===== */
-main {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-/* ===== Intro Section ===== */
-.intro {
-  margin-bottom: 3rem;
-  max-width: 800px;
-}
-
-.intro .tagline {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
-
-.intro .description {
-  font-size: 1.1rem;
-  color: #222;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-/* ===== Skills ===== */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.skill-pill {
-  background-color: #f1f1f1;
-  color: #111;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  font-size: 0.95rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
-}
-
-.skill-pill:hover {
-  transform: scale(1.05);
-  background-color: #eaeaea;
-}
-
-/* ===== Projects ===== */
-.project-cards {
+.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 2rem;
 }
 
 .card {
-  background-color: #fafafa;
-  border: 1px solid #e5e5e5;
+  background: #f8f8f8;
+  border-radius: 10px;
   padding: 1.5rem;
-  border-radius: 12px;
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.card h3 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  font-weight: 600;
+.card__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-.card p {
-  font-size: 0.95rem;
+.card__desc {
+  font-size: 1rem;
   color: #444;
+  margin-bottom: 1rem;
 }
 
-.card a {
-  display: inline-block;
-  margin-top: 0.75rem;
+.card__url a {
+  font-weight: 600;
   color: #1a73e8;
   text-decoration: none;
-  font-weight: 500;
 }
 
-.card a:hover {
+.card__url a:hover {
   text-decoration: underline;
 }
 
-/* ===== Footer ===== */
-.footer {
+footer {
   text-align: center;
-  margin-top: 4rem;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #777;
   padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  margin-top: 4rem;
 }
 
-/* ===== Responsive Design ===== */
-@media screen and (max-width: 768px) {
-  .header-container {
+@media (max-width: 600px) {
+  nav {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
+  .card__title {
+    font-size: 1.2rem;
   }
 
-  .scroll-container {
-    margin-top: 1rem;
-  }
-
-  main {
-    padding: 1rem;
-  }
-
-  .skills-grid {
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .intro .tagline {
-    font-size: 1.1rem;
-  }
-
-  .intro .description {
-    font-size: 1rem;
-  }
-
-  .card h3 {
-    font-size: 1.15rem;
-  }
-
-  .card p {
-    font-size: 0.9rem;
+  .card__desc {
+    font-size: 0.95rem;
   }
 }
