@@ -1,201 +1,57 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom, #a8d8ff 0%, #1a2a6c 100%);
-  color: white;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
 
-.intro {
-  height: 100vh;
-  text-align: center;
-  padding: 5rem 1rem;
-  position: relative;
-  background: linear-gradient(to bottom, #a8d8ff, #1a2a6c);
-  color: white;
-  z-index: 10;
-}
+\begin{document}
 
-.intro h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
+\begin{center}
+    {\Huge \textbf{Satya Teja Yannam}}\\[0.3em]
+    \href{mailto:syannam2024@fau.edu}{syannam2024@fau.edu} \quad 
+    \href{https://linkedin.com/in/satyayannam}{linkedin.com/in/satyayannam} \\
+    \href{https://github.com/satyayannam}{github.com/satyayannam} \quad 
+    +1 (561) 930 3797
+\end{center}
 
-.scroll-hint {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  color: #e0f7ff;
-}
+\section*{SUMMARY}
+Graduate student in Data Science at FAU with strong communication, teamwork, and event logistics experience. Proven ability to follow instructions, stay organized under pressure, and lift heavy equipment. Eager to support the FAU Student Union's service mission while gaining leadership, planning, and problem-solving experience.
 
-.diver {
-  position: fixed;
-  width: 140px;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-  pointer-events: none;
-  transition: opacity 0.5s ease-in-out;
-}
+\section*{SKILLS}
+\textbf{Communication:} Friendly, confident communicator; excels in verbal and written formats.\\
+\textbf{Event Support:} Room setup, AV prep, storage management, equipment movement.\\
+\textbf{Technology:} Microsoft Office, Google Suite, Canvas, Outlook, Zoom.\\
+\textbf{Technical:} Python, basic Linux commands, data organization in Excel and Sheets.\\
+\textbf{Physical Readiness:} Able to lift 70+ lbs, move AV and stage equipment.\\
+\textbf{Languages:} English (Fluent), Hindi (Fluent), Spanish (Basic)
 
-.section {
-  height: 100vh;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  text-align: center;
-  position: relative;
-  z-index: 5;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+\section*{EXPERIENCE}
+\textbf{Event Support Assistant}, Malla Reddy University \hfill Aug 2022 – May 2023
+\begin{itemize}[leftmargin=*]
+    \item Set up and broke down event spaces for cultural programs and academic fests.
+    \item Managed seating layouts, speaker readiness, and attendee coordination.
+    \item Assisted with AV setup and storage area organization.
+\end{itemize}
 
-.section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-}
+\section*{EDUCATION}
+\textbf{Florida Atlantic University}, Boca Raton, FL \\
+\textit{M.S. in Data Science and Analytics} \hfill Expected May 2026 \\
+GPA: 3.833/4.00
 
-.section p, .card {
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-}
+\textbf{Malla Reddy University}, Hyderabad, India \\
+\textit{B.Tech. in Computer Science (AI/ML)} \hfill May 2024 \\
+CGPA: 8.08
 
-.card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  width: 85%;
-  max-width: 640px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(3px);
-}
+\section*{TRAINING}
+\begin{itemize}[leftmargin=*]
+    \item Completed team-based projects that required scheduling, coordination, and setup responsibilities.
+    \item Developed communication and problem-solving skills while leading student tech club sessions.
+    \item Familiar with campus platforms like Canvas, Google Calendar, and Outlook from academic coordination.
+    \item Worked with GitHub and Python on basic automation tasks and data formatting workflows.
+\end{itemize}
 
-.card:hover {
-  transform: translateY(-6px);
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-.contact a {
-  color: #33ccff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.contact a:hover {
-  text-decoration: underline;
-  color: #00ffff;
-}
-
-.breaking {
-  font-style: italic;
-  font-weight: 500;
-  color: #f6f6f6;
-  margin-top: 1rem;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.04); }
-}
-
-/* Ocean Items: icons for tech */
-.tech-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.tech-icons .item {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  color: #e0f7ff;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.tech-icons .item:hover {
-  transform: translateY(-6px);
-  background-color: rgba(255,255,255,0.15);
-}
-
-@media screen and (max-width: 768px) {
-  .intro h1 {
-    font-size: 2.3rem;
-  }
-
-  .section h2 {
-    font-size: 2rem;
-  }
-
-  .section p {
-    font-size: 1rem;
-  }
-
-  .diver {
-    width: 100px;
-  }
-
-  .tech-icons .item {
-    width: 80px;
-    height: 80px;
-    font-size: 0.75rem;
-  }
-}
-
-.fish-container {
-  position: fixed;
-  top: 20%;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.fish {
-  position: absolute;
-  width: 60px;
-  opacity: 0.85;
-  animation: swim 15s linear infinite;
-}
-
-.fish--left {
-  top: 30%;
-  left: -100px;
-  animation-name: swim-left;
-}
-
-.fish--right {
-  top: 60%;
-  left: 100%;
-  animation-name: swim-right;
-}
-
-@keyframes swim-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(110vw); }
-}
-
-@keyframes swim-right {
-  0% { transform: translateX(0) scaleX(-1); }
-  100% { transform: translateX(-110vw) scaleX(-1); }
-}
+\end{document}
