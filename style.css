@@ -1,15 +1,16 @@
-/* 🌊 Ocean Backgrounds */
+/* Base */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom, #a8d8ff 0%, #1a2a6c 100%); /* light ocean */
+  background: linear-gradient(to bottom, #a8d8ff 0%, #1a2a6c 100%);
   color: white;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  transition: background 1s ease, color 1s ease;
 }
 
-/* 🌙 Dark Mode */
+/* Dark Mode */
 body.dark-mode {
   background: linear-gradient(to bottom, #00111d 0%, #000d1a 100%);
   color: #e0f7ff;
@@ -26,14 +27,24 @@ body.dark-mode {
   border: none;
   cursor: pointer;
   color: white;
+  display: flex;
+  align-items: center;
   transition: transform 0.3s ease;
 }
-
+.theme-toggle .moon {
+  display: none;
+}
+body.dark-mode .theme-toggle .sun {
+  display: none;
+}
+body.dark-mode .theme-toggle .moon {
+  display: inline;
+}
 .theme-toggle:hover {
-  transform: scale(1.15);
+  transform: rotate(10deg) scale(1.15);
 }
 
-/* Intro Section */
+/* Intro */
 .intro {
   height: 100vh;
   text-align: center;
@@ -43,13 +54,11 @@ body.dark-mode {
   color: white;
   z-index: 10;
 }
-
 .intro h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   color: #ffffff;
 }
-
 .scroll-hint {
   font-size: 1.2rem;
   opacity: 0.9;
@@ -64,49 +73,23 @@ body.dark-mode {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: transparent;
   text-align: center;
   position: relative;
   z-index: 5;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .section h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
-
 .section p {
   font-size: 1.1rem;
   max-width: 800px;
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.9);
 }
-
 body.dark-mode .section p {
   color: rgba(255, 255, 255, 0.85);
-}
-
-/* Cards */
-.card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  width: 85%;
-  max-width: 640px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(3px);
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-body.dark-mode .card {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #e0f7ff;
 }
 
 /* Contact Links */
@@ -115,21 +98,18 @@ body.dark-mode .card {
   text-decoration: none;
   font-weight: 600;
 }
-
 .contact a:hover {
   text-decoration: underline;
   color: #00ffff;
 }
-
 body.dark-mode .contact a {
   color: #66ccff;
 }
-
 body.dark-mode .contact a:hover {
   color: #33ffff;
 }
 
-/* Glowing Fish (Night Mode) */
+/* Fish Layer */
 .fish-container {
   position: fixed;
   top: 0;
@@ -139,7 +119,6 @@ body.dark-mode .contact a:hover {
   pointer-events: none;
   z-index: 1;
 }
-
 .fish {
   position: absolute;
   width: 60px;
@@ -147,54 +126,55 @@ body.dark-mode .contact a:hover {
   animation-duration: 25s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  pointer-events: auto;
+  cursor: pointer;
 }
-
 .fish-left {
-  top: 20%;
+  top: calc(10% + 10vw);
   left: -100px;
   animation-name: swim-left;
 }
-
 .fish-right {
-  top: 65%;
+  top: calc(60% - 10vw);
   left: 100%;
   animation-name: swim-right;
   transform: scaleX(-1);
 }
-
 @keyframes swim-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(110vw); }
 }
-
 @keyframes swim-right {
   0% { transform: translateX(0) scaleX(-1); }
   100% { transform: translateX(-110vw) scaleX(-1); }
 }
-
 /* Fish Glow at Night */
 body.dark-mode .fish {
   filter: drop-shadow(0 0 6px #00ffff);
   opacity: 0.85;
 }
 
-/* Fish Tooltip */
-.fish:hover::after {
-  content: attr(data-info);
-  position: absolute;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  font-size: 0.75rem;
-  padding: 6px 10px;
+/* Fish Tooltip on Click */
+.fish-tooltip {
+  position: fixed;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 6px 12px;
   border-radius: 6px;
-  top: -25px;
-  left: 50%;
+  font-size: 0.8rem;
+  pointer-events: none;
+  z-index: 99999;
   transform: translateX(-50%);
-  white-space: nowrap;
-  z-index: 10000;
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
 }
 
-/* Diver Icon */
+/* Glowing Diver */
 .diver {
   position: fixed;
   width: 140px;
@@ -206,25 +186,24 @@ body.dark-mode .fish {
   cursor: pointer;
   transition: opacity 0.5s ease-in-out;
 }
+body.dark-mode .diver {
+  filter: drop-shadow(0 0 8px #33ccff);
+}
 
 /* Responsive */
 @media screen and (max-width: 768px) {
   .intro h1 {
     font-size: 2.3rem;
   }
-
   .section h2 {
     font-size: 2rem;
   }
-
   .section p {
     font-size: 1rem;
   }
-
   .diver {
     width: 100px;
   }
-
   .theme-toggle {
     font-size: 1.4rem;
   }
