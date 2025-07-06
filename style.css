@@ -141,7 +141,9 @@ body.dark-mode .diver {
   animation: orbit-in 0.5s ease-out forwards;
   animation-delay: calc(0.1s * var(--i));
   pointer-events: auto;
+  transform: rotate(calc(360deg / 6 * var(--i))) translateY(-100px) rotate(calc(-360deg / 6 * var(--i)));
 }
+
 
 .bubble-menu a:hover {
   background-color: rgba(255, 255, 255, 0.3);
