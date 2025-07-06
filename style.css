@@ -35,7 +35,7 @@ body.dark-mode .theme-toggle .sun { display: none; }
 body.dark-mode .theme-toggle .moon { display: inline; }
 .theme-toggle:hover { transform: rotate(10deg) scale(1.15); }
 
-/* 🐠 Fish Animation */
+/* 🐟 Fish */
 .fish-container {
   position: fixed;
   top: 0;
@@ -43,20 +43,20 @@ body.dark-mode .theme-toggle .moon { display: inline; }
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .fish {
   position: absolute;
   width: 60px;
   opacity: 0.9;
-  animation-name: swim-left;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   pointer-events: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+
 .fish-left {
   left: -100px;
   animation-name: swim-left;
@@ -66,14 +66,17 @@ body.dark-mode .theme-toggle .moon { display: inline; }
   transform: scaleX(-1);
   animation-name: swim-right;
 }
+
 @keyframes swim-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(110vw); }
 }
+
 @keyframes swim-right {
   0% { transform: translateX(0) scaleX(-1); }
   100% { transform: translateX(-110vw) scaleX(-1); }
 }
+
 .fish:hover {
   transform: scale(1.3);
   z-index: 1000;
@@ -83,7 +86,7 @@ body.dark-mode .fish {
   opacity: 0.85;
 }
 
-/* 🐠 Tooltip */
+/* 🐟 Tooltip */
 .fish-tooltip {
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
@@ -93,10 +96,9 @@ body.dark-mode .fish {
   border-radius: 6px;
   transform: translateX(-50%);
   white-space: nowrap;
-  z-index: 99999;
+  z-index: 10000;
   pointer-events: none;
 }
-
 
 /* 🤿 Diver */
 .diver {
@@ -105,7 +107,7 @@ body.dark-mode .fish {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 999;
   cursor: pointer;
   transition: filter 0.4s ease;
 }
@@ -113,6 +115,7 @@ body.dark-mode .diver {
   filter: drop-shadow(0 0 12px #00ffff);
 }
 
+/* 🫧 Bubble Menu (Circular Orbit) */
 .bubble-menu {
   position: fixed;
   bottom: 130px;
@@ -140,12 +143,12 @@ body.dark-mode .diver {
   pointer-events: auto;
 }
 
-.bubble-menu.hidden a {
-  display: none;
-}
-
 .bubble-menu a:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bubble-menu.hidden a {
+  display: none;
 }
 
 @keyframes orbit-in {
@@ -159,14 +162,13 @@ body.dark-mode .diver {
   }
 }
 
-/* 💬 Content */
+/* 🏝️ Intro Section */
 .intro {
   height: 100vh;
   text-align: center;
   padding: 5rem 1rem;
   position: relative;
-  color: white;
-  z-index: 10;
+  z-index: 3;
 }
 .intro h1 {
   font-size: 3rem;
