@@ -1,4 +1,4 @@
-/* Base */
+/* 🌊 Base Styles */
 body {
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body.dark-mode {
   color: #e0f7ff;
 }
 
-/* Theme Toggle Button */
+/* 🌗 Theme Toggle Button */
 .theme-toggle {
   position: fixed;
   top: 20px;
@@ -35,20 +35,132 @@ body.dark-mode .theme-toggle .sun { display: none; }
 body.dark-mode .theme-toggle .moon { display: inline; }
 .theme-toggle:hover { transform: rotate(10deg) scale(1.15); }
 
-/* Intro */
+/* 🐠 Fish Animation */
+.fish-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fish {
+  position: absolute;
+  width: 60px;
+  opacity: 0.9;
+  animation-name: swim-left;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.fish-left {
+  left: -100px;
+  animation-name: swim-left;
+}
+.fish-right {
+  left: 100%;
+  transform: scaleX(-1);
+  animation-name: swim-right;
+}
+@keyframes swim-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(110vw); }
+}
+@keyframes swim-right {
+  0% { transform: translateX(0) scaleX(-1); }
+  100% { transform: translateX(-110vw) scaleX(-1); }
+}
+.fish:hover {
+  transform: scale(1.3);
+  z-index: 1000;
+}
+body.dark-mode .fish {
+  filter: drop-shadow(0 0 6px #00ffff);
+  opacity: 0.85;
+}
+
+/* 🐠 Tooltip */
+.fish-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  z-index: 10000;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+/* 🤿 Diver */
+.diver {
+  position: fixed;
+  width: 120px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  cursor: pointer;
+  transition: filter 0.4s ease;
+}
+body.dark-mode .diver {
+  filter: drop-shadow(0 0 12px #00ffff);
+}
+
+/* 🫧 Bubble Menu */
+.bubble-menu {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  width: 0;
+  height: 0;
+}
+.bubble-menu a {
+  position: absolute;
+  transform: rotate(calc(60deg * var(--i))) translateY(-120px);
+  transform-origin: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  opacity: 0;
+  animation: bubble-float 0.6s ease-out forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+.bubble-menu a:hover {
+  background: rgba(255,255,255,0.3);
+}
+.bubble-menu.hidden a {
+  display: none;
+}
+@keyframes bubble-float {
+  0% { opacity: 0; transform: scale(0.5) translateY(0); }
+  100% { opacity: 1; transform: scale(1) rotate(calc(60deg * var(--i))) translateY(-120px); }
+}
+
+/* 💬 Content */
 .intro {
   height: 100vh;
   text-align: center;
   padding: 5rem 1rem;
   position: relative;
-  background: transparent;
   color: white;
   z-index: 10;
 }
 .intro h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #ffffff;
 }
 .scroll-hint {
   font-size: 1.2rem;
@@ -56,7 +168,7 @@ body.dark-mode .theme-toggle .moon { display: inline; }
   color: #e0f7ff;
 }
 
-/* Sections */
+/* 📄 Sections */
 .section {
   height: 100vh;
   padding: 4rem 2rem;
@@ -83,7 +195,7 @@ body.dark-mode .section p {
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Contact Links */
+/* 📫 Contact Links */
 .contact a {
   color: #33ccff;
   text-decoration: none;
@@ -100,124 +212,7 @@ body.dark-mode .contact a:hover {
   color: #33ffff;
 }
 
-/* Fish Container */
-.fish-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-.fish {
-  position: absolute;
-  width: 60px;
-  opacity: 0.9;
-  animation-duration: 25s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  pointer-events: auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.fish-left {
-  top: calc(10% + 10vw);
-  left: -100px;
-  animation-name: swim-left;
-}
-.fish-right {
-  top: calc(60% - 10vw);
-  left: 100%;
-  animation-name: swim-right;
-  transform: scaleX(-1);
-}
-@keyframes swim-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(110vw); }
-}
-@keyframes swim-right {
-  0% { transform: translateX(0) scaleX(-1); }
-  100% { transform: translateX(-110vw) scaleX(-1); }
-}
-
-/* Fish on Hover */
-.fish:hover {
-  transform: scale(1.3);
-  z-index: 1000;
-}
-body.dark-mode .fish {
-  filter: drop-shadow(0 0 6px #00ffff);
-  opacity: 0.85;
-}
-
-/* Fish Tooltip */
-.fish-tooltip {
-  position: fixed;
-  background: rgba(0,0,0,0.75);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  z-index: 10000;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
-/* Diver Icon */
-.diver {
-  position: fixed;
-  width: 120px;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  cursor: pointer;
-  transition: filter 0.4s ease;
-}
-body.dark-mode .diver {
-  filter: drop-shadow(0 0 12px #00ffff);
-}
-
-/* Bubble Menu */
-.bubble-menu {
-  position: fixed;
-  bottom: 150px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-  z-index: 9999;
-}
-.bubble-menu a {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-weight: 600;
-  text-decoration: none;
-  animation: float-up 0.5s ease-out forwards;
-}
-.bubble-menu a:hover {
-  background: rgba(255,255,255,0.3);
-}
-.hidden {
-  display: none;
-}
-@keyframes float-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Responsive */
+/* 📱 Responsive */
 @media screen and (max-width: 768px) {
   .intro h1 { font-size: 2.3rem; }
   .section h2 { font-size: 2rem; }
