@@ -130,5 +130,7 @@ body {
   margin: 1rem 0 2rem 0;
   text-align: center;
   border: 1px solid #333;
-  min-height: 6em;
+  min-height: 24em;
+  white-space: pre;
+  overflow-x: auto;
 }
