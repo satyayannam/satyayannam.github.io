@@ -121,3 +121,14 @@ body {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+.ascii-box {
+  font-family: monospace;
+  color: #00ff00;
+  background: #111;
+  padding: 1rem;
+  margin: 1rem 0 2rem 0;
+  text-align: center;
+  border: 1px solid #333;
+  min-height: 6em;
+}
