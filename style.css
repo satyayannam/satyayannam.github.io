@@ -126,11 +126,34 @@ body {
   font-family: monospace;
   color: #00ff00;
   background: #111;
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 1rem 0 2rem 0;
   text-align: center;
   border: 1px solid #333;
-  min-height: 24em;
   white-space: pre;
   overflow-x: auto;
+  min-height: 10em;
+  position: relative;
+}
+
+.pulse {
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+  50% {
+    color: #33ff33;
+    text-shadow: 0 0 15px #33ff33, 0 0 25px #33ff33;
+  }
+}
+
+.ascii-subline {
+  color: #55ff55;
+  font-family: monospace;
+  margin-top: 1rem;
+  font-size: 0.95rem;
 }
