@@ -1,4 +1,4 @@
-/* Base Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,134 +6,118 @@
 }
 
 body {
-  background-color: #000;
+  background: #000;
   color: #00ff00;
-  font-family: 'Courier New', Courier, monospace;
-  padding: 1.5rem;
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
   line-height: 1.5;
 }
 
-/* Top "What is Satya?" Banner */
+/* Banner */
 .about-banner {
-  background-color: #1a1a1a;
+  background: #111;
   border: 2px solid #a10000;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   margin-bottom: 2rem;
   color: #fff;
 }
-
 .about-banner h1 {
-  font-size: 1.5rem;
-  color: #fff;
-  background-color: #a10000;
+  background: #a10000;
   padding: 0.5rem;
+  font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
-/* Board Section Like 4chan */
+/* Sections */
 .boards {
   margin-bottom: 2rem;
 }
-
 .boards h2 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid #00ff00;
-  padding-bottom: 0.25rem;
 }
-
 .board-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
 }
-
 .column {
   flex: 1;
-  min-width: 180px;
+  min-width: 200px;
 }
-
 .column h3 {
   font-size: 1rem;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
   text-decoration: underline;
 }
-
 .column ul {
   list-style: none;
 }
-
 .column li {
-  margin-bottom: 0.4rem;
+  margin: 0.5rem 0;
 }
-
 .column a {
   color: #00ff00;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
-
 .column a:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
-/* Terminal Area */
+/* Terminal */
 .terminal-section {
-  background-color: #111;
-  padding: 1rem;
+  background: #111;
   border: 1px solid #444;
-  max-width: 800px;
-  margin-top: 3rem;
+  padding: 1rem;
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
 }
 
 #terminal-output {
-  margin-bottom: 1rem;
+  max-height: 400px;
   overflow-y: auto;
-  max-height: 300px;
+  margin-bottom: 1rem;
 }
-
 .command {
-  color: #00ff00;
   font-weight: bold;
-  margin-bottom: 0.25rem;
+  color: #00ff00;
 }
-
 .output {
   color: #ccc;
-  margin-bottom: 0.75rem;
+}
+.bootup {
+  color: #00ff00;
+  font-style: italic;
+  animation: typewriter 1s steps(40) 1;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 #terminal-form {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
-
 #terminal-form label {
+  margin-right: 0.5rem;
   color: #00ff00;
-  font-weight: bold;
 }
-
 #terminal-input {
   flex: 1;
-  background-color: transparent;
+  background: transparent;
   border: none;
   border-bottom: 1px solid #00ff00;
   color: #00ff00;
-  font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   padding: 0.25rem;
   outline: none;
 }
-
-/* Responsive */
-@media (max-width: 600px) {
-  .board-grid {
-    flex-direction: column;
-  }
-
-  .terminal-section {
-    padding: 1rem 0.5rem;
-  }
+.cursor {
+  color: #00ff00;
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+}
+@keyframes blink {
+  50% { opacity: 0; }
 }
