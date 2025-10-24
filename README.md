@@ -1,31 +1,31 @@
-# Satya Yannam's Portfolio
+﻿# Satya Yannam's Portfolio
 
-This is my personal portfolio website showcasing my work and experience as a Software Engineer.
-
-## Overview
-
-A clean, responsive portfolio website built with:
-- HTML5
-- CSS3 (with CSS Variables for theming)
-- Vanilla JavaScript
-- Dark theme design
-- Responsive layout
+A fast, simple single‑page portfolio built with semantic HTML, minimal CSS, and a touch of vanilla JS. Optimized to run directly on GitHub Pages (no build step required).
 
 ## Features
-- About Me section
-- Skills showcase
-- Professional experience
-- Contact information
-- Smooth animations
-- Mobile-responsive design
+- Clean, responsive design
+- Sections: About, Skills, Projects, Experience, Certifications, Publications, Contact
+- Sticky navigation with smooth scroll
+- Works as a static site on GitHub Pages
 
-## Visit
-The website is hosted using GitHub Pages at: https://satyayannam.github.io/
+## Live Site
+https://satyayannam.github.io/
 
-## Local Development
-To run this website locally, simply clone the repository and open `index.html` in your browser:
+## Editing Your Details
+Edit the content directly in `index.html`:
+- Name/Title: hero in `index.html:26`
+- About: `index.html:44`
+- Skills tags: `index.html:50`
+- Projects: `index.html:59`
+- Experience timeline: `index.html:79`
+- Certifications: `index.html:95`
+- Publications: `index.html:103`
+- Contact links: `index.html:111`
 
-```bash
-git clone https://github.com/satyayannam/satyayannam.github.io.git
-cd satyayannam.github.io
-```
+Replace placeholders like `your.email@example.com`, `your-linkedin`, and sample project entries.
+
+## Local Preview
+Just open `index.html` in a browser. No tooling needed.
+
+## Deploy
+Push to the `main` branch of this repo. GitHub Pages serves `index.html` automatically for `satyayannam.github.io`.
