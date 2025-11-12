@@ -43,6 +43,29 @@
       .when{font-size:12px;color:var(--muted);min-width:110px}
       footer{padding:38px 0;color:var(--muted);text-align:center}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+      /* Accordions */
+      .accordion{display:grid;gap:10px}
+      details{border:1px solid rgba(148,163,184,.18);border-radius:10px;background:rgba(2,6,23,.35)}
+      summary{cursor:pointer;list-style:none;padding:12px 14px;font-weight:600;color:#e2e8f0;display:flex;align-items:center;justify-content:space-between}
+      summary::-webkit-details-marker{display:none}
+      details[open] summary{border-bottom:1px solid rgba(148,163,184,.12)}
+      details > div{padding:12px 14px}
+      /* Badges */
+      .badges{display:flex;gap:8px;flex-wrap:wrap}
+      .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:12px;color:#e5e7eb;border:1px solid rgba(148,163,184,.22);background:rgba(15,23,42,.6)}
+      .badge.oci{background:linear-gradient(90deg,#ef4444,#b91c1c);border-color:rgba(239,68,68,.45)}
+      .badge.aws{background:linear-gradient(90deg,#f59e0b,#d97706);border-color:rgba(245,158,11,.45)}
+      .badge.google{background:linear-gradient(90deg,#34d399,#059669);border-color:rgba(16,185,129,.45)}
+      .badge.anthropic{background:linear-gradient(90deg,#a78bfa,#7c3aed);border-color:rgba(167,139,250,.45)}
+      .badge.cisco{background:linear-gradient(90deg,#38bdf8,#0284c7);border-color:rgba(56,189,248,.45)}
+      .badge.microsoft{background:linear-gradient(90deg,#60a5fa,#2563eb);border-color:rgba(96,165,250,.45)}
+      .badge.ibm{background:linear-gradient(90deg,#93c5fd,#3b82f6);border-color:rgba(59,130,246,.45)}
+      .badge.meta{background:linear-gradient(90deg,#818cf8,#4f46e5);border-color:rgba(129,140,248,.45)}
+      .badge.dla{background:linear-gradient(90deg,#14b8a6,#0d9488);border-color:rgba(20,184,166,.45)}
+      .badge.coursera{background:linear-gradient(90deg,#60a5fa,#1d4ed8);border-color:rgba(29,78,216,.45)}
+      .badge.iit{background:linear-gradient(90deg,#f472b6,#db2777);border-color:rgba(244,114,182,.45)}
+      .badge.google-ds{background:linear-gradient(90deg,#22c55e,#16a34a);border-color:rgba(34,197,94,.45)}
+      .muted{color:var(--muted)}
       /* Mobile navigation toggle */
       .menu-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;border:1px solid rgba(148,163,184,.24);background:rgba(2,6,23,.4);color:var(--text)}
       .menu-toggle:hover{border-color:rgba(148,163,184,.4);box-shadow:0 0 0 4px var(--ring)}
@@ -67,7 +90,7 @@
   <body>
     <header>
       <div class="container nav">
-        <div class="brand">Satya Teja Yannam</div>
+        <div class="brand">Satya Yannam</div>
         <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle" aria-controls="primaryNav" aria-expanded="false">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -78,6 +101,7 @@
           <a href="#education">Education</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#recs">Recommendations</a>
           <a href="#experience">Experience</a>
           <a href="#certs">Certs</a>
           <a href="#pubs">Publications</a>
@@ -88,8 +112,8 @@
 
     <main class="container">
       <section class="hero" id="home">
-        <h1>Data Science Graduate Student</h1>
-        <p>I turn data into insight and insight into impact — building AI/ML systems, analytics, and tools that make technology feel human.</p>
+        <h1>Satya Yannam | M.S. Data Science &amp; Analytics @ FAU | Prev Intern @ MedKick | AI &amp; Cloud Enthusiast</h1>
+        <p>I turn data into insight and insight into impact - building AI/ML systems, analytics, and tools that make technology feel human.</p>
         <div class="cta">
           <a class="btn primary" href="https://github.com/satyayannam" target="_blank" rel="noreferrer">GitHub</a>
           <a class="btn" href="https://linkedin.com/in/satyayannam" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -126,38 +150,77 @@
 
       <section id="skills" aria-labelledby="skills-h">
         <h2 id="skills-h">Skills</h2>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Streamlit</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">LLMs</span>
-          <span class="tag">n8n</span>
-          <span class="tag">Data Visualization</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">AWS</span>
-          <span class="tag">Git</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Mistral</span>
-          <span class="tag">AutoGen</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">ReactJS (basic)</span>
-          <span class="tag">FAISS</span>
-          <span class="tag">Pinecone</span>
-          <span class="tag">Data Analytics</span>
-          <span class="tag">Statistical Modeling</span>
-          <span class="tag">Prompt Engineering</span>
+        <div class="accordion" aria-label="Skills by category">
+          <details open>
+            <summary>Cloud</summary>
+            <div class="tags">
+              <span class="tag">Oracle Cloud (OCI)</span>
+              <span class="tag">AWS</span>
+            </div>
+          </details>
+          <details>
+            <summary>AI / ML</summary>
+            <div class="tags">
+              <span class="tag">TensorFlow</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">Mistral</span>
+              <span class="tag">FAISS</span>
+              <span class="tag">Pinecone</span>
+              <span class="tag">Prompt Engineering</span>
+            </div>
+          </details>
+          <details>
+            <summary>Data Science</summary>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Data Analytics</span>
+              <span class="tag">Statistical Modeling</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Tableau</span>
+              <span class="tag">SQL</span>
+            </div>
+          </details>
+          <details>
+            <summary>Web / Apps</summary>
+            <div class="tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">ReactJS (basic)</span>
+            </div>
+          </details>
+          <details>
+            <summary>DevOps &amp; Automation</summary>
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">n8n</span>
+            </div>
+          </details>
         </div>
       </section>
 
       <section id="projects" aria-labelledby="projects-h">
         <h2 id="projects-h">Projects</h2>
         <div class="grid">
+          <article class="card">
+            <h3>Government Spending Tracker</h3>
+            <p>Interactive tracker for government expenditures by agency, category, time, and location, with filterable views and trend insights.</p>
+            <ul class="muted" style="margin:8px 0 0 18px">
+              <li>Search, filter, and breakdown by multiple dimensions</li>
+              <li>Visual summaries for trends and anomalies</li>
+              <li>Clean, responsive UI with export-friendly views</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Open Data</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </article>
           <article class="card"><h3>AutoAgent RAGBot</h3><p>Agentic RAG system using Mistral 7B &amp; AutoGen for reasoning and fallback routing.</p></article>
           <article class="card"><h3>CardioCare</h3><p>Heart disease risk predictor (96% accuracy) with SHAP explainability.</p></article>
           <article class="card"><h3>MHbot</h3><p>Mental health chatbot with sentiment and emotion graph visualization.</p></article>
@@ -167,6 +230,19 @@
           <article class="card"><h3>PromptForge</h3><p>Prompt benchmarking framework comparing GPT, Claude, Mistral.</p></article>
           <article class="card"><h3>Apollo Lead Generator</h3><p>Automated 100K email scraping &amp; enrichment via Apollo API.</p></article>
           <article class="card"><h3>SpeechAndText</h3><p>Speech-to-text &amp; text‑emotion analysis NLP system.</p></article>
+        </div>
+      </section>
+
+      <section id="recs" aria-labelledby="recs-h">
+        <h2 id="recs-h">Recommendations</h2>
+        <div class="list" aria-label="Recommendations">
+          <div class="item">
+            <div class="when">—</div>
+            <div>
+              <strong>Letter of Recommendation</strong> — Dr. Sadik Bizanti, CEO at Med-Kick
+              <div class="muted" style="margin-top:6px">Endorses Satya’s initiative, reliability, and impact during the internship at Med-Kick. Full letter available upon request.</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -197,28 +273,97 @@
 
       <section id="certs" aria-labelledby="certs-h">
         <h2 id="certs-h">Certifications</h2>
-        <ul class="list" aria-label="Certifications">
-          <li class="item"><div class="when">—</div><div><strong>Deep Learning</strong> — IIT Ropar — <a href="https://aictecert.eduskillsfoundation.org/pages/home/verify.php?cert=07c2a768bd0f44daf48bd1c4488787b8" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>AWS Academy Graduate</strong> — Machine Learning Foundations — <a href="https://www.credly.com/badges/3ad4a6f6-cd09-4d6f-a1ae-84b316de19e8/public_url" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>AWS Academy Graduate</strong> — Data Analytics— <a href="https://www.credly.com/badges/1fa61874-f321-4b68-a220-79170d0745f9/public_url" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>AWS Academy Graduate</strong> — Cloud Foundations— <a href="https://www.credly.com/badges/e5873b4e-b44b-446b-8c6d-b20d22e3f034/public_url" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>AI For Everyone</strong> — DeepLearning.AI — <a href="https://coursera.org/verify/G6LUXH2VJ7ZF" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Introduction to Model Context Protocol</strong> — Anthropic - <a href="https://verify.skilljar.com/c/z22uqm8yy8x8" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Model Context Protocol: Advanced Topics</strong> — Anthropic - <a href="https://verify.skilljar.com/c/im27orrcpqsp" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Foundations: Data, Data, Everywhere</strong> — Google — <a href="https://coursera.org/verify/H6KZRKK2ZNZW" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Introduction to TensorFlow for AI/ML/DL</strong> — DeepLearning.AI — <a href="https://coursera.org/verify/UDBNBBZFZHYU" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Introduction to iOS Mobile App Development</strong> — Meta — <a href="https://coursera.org/verify/UUAEMXXPGKCP" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Python OCR using PyTorch</strong> — <a href="https://coursera.org/verify/J9C5PGLLJ99M" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Python for Data Analysis: Pandas &amp; NumPy</strong> — <a href="https://coursera.org/verify/G4DKMT3GM5Q8" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Mastering Data Analysis with Pandas</strong> — <a href="https://coursera.org/verify/QZMH28YHNH24" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Python for Data Visualization: Matplotlib &amp; Seaborn</strong> — <a href="https://coursera.org/verify/2AA7K42LTBAX" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Merge, Sort and Filter Data in Python Pandas</strong> — <a href="https://coursera.org/verify/U7ZMBCC7HJ2D" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Version Control of a Python Project using Git</strong> — <a href="https://coursera.org/verify/V6GNUQDEWGNY" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Build a Twitter Clone Front‑End with ReactJS</strong> — <a href="https://coursera.org/verify/BV74VLNLLP2P" target="_blank" rel="noreferrer">verify</a></div></li>
-          <li class="item"><div class="when">—</div><div><strong>Statistics 101</strong> — Independent MOOC</div></li>
-          <li class="item"><div class="when">—</div><div><strong>Microsoft AI Classroom Series</strong> — Microsoft India</div></li>
-          <li class="item"><div class="when">—</div><div><strong>Cisco</strong> — Introduction to Cybersecurity</div></li>
-        </ul>
+        <div class="accordion" aria-label="Certifications by domain">
+          <details open>
+            <summary>Cloud</summary>
+            <div>
+              <div class="badges" style="margin-bottom:8px">
+                <span class="badge oci">Oracle Cloud Infrastructure</span>
+                <span class="badge aws">AWS</span>
+                <span class="badge google">Google</span>
+              </div>
+              <ul class="list">
+                <li class="item"><div class="when">2025</div><div><strong>OCI 2025 Certified Architect Associate</strong> <span class="badge oci">Oracle</span></div></li>
+                <li class="item"><div class="when">2025</div><div><strong>OCI 2025 Certified Developer Professional</strong> <span class="badge oci">Oracle</span></div></li>
+                <li class="item"><div class="when">2025</div><div><strong>OCI 2025 Certified Foundations Associate</strong> <span class="badge oci">Oracle</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>AWS Academy Graduate — Cloud Foundations</strong> <span class="badge aws">AWS</span></div></li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>AI / Data Science</summary>
+            <div>
+              <div class="badges" style="margin-bottom:8px">
+                <span class="badge anthropic">Anthropic</span>
+                <span class="badge dla">DeepLearning.AI</span>
+                <span class="badge iit">IIT Ropar</span>
+                <span class="badge microsoft">Microsoft</span>
+                <span class="badge google-ds">Google</span>
+                <span class="badge ibm">IBM</span>
+                <span class="badge coursera">Coursera</span>
+              </div>
+              <ul class="list">
+                <li class="item"><div class="when">2025</div><div><strong>OCI 2025 Certified Data Science Professional</strong> <span class="badge oci">Oracle</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Oracle Fusion AI Agent Studio — Foundations Associate</strong> <span class="badge oci">Oracle</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Anthropic: Introduction to Model Context Protocol</strong> <span class="badge anthropic">Anthropic</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Anthropic: Model Context Protocol — Advanced Topics</strong> <span class="badge anthropic">Anthropic</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>DeepLearning.AI: AI For Everyone</strong> <span class="badge dla">DeepLearning.AI</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>DeepLearning.AI: TensorFlow for AI/ML/DL</strong> <span class="badge dla">DeepLearning.AI</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>IIT Ropar: Deep Learning</strong> <span class="badge iit">IIT</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Microsoft AI Classroom Series</strong> <span class="badge microsoft">Microsoft</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Google: Foundations — Data, Data Everywhere</strong> <span class="badge google-ds">Google</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>IBM: SQL and Relational Databases 101</strong> <span class="badge ibm">IBM</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>AWS Academy Graduate — Data Analytics</strong> <span class="badge aws">AWS</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>AWS Data Analytics Virtual Internship (AICTE)</strong> <span class="badge aws">AWS</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Coursera: Mastering Data Analysis with Pandas</strong> <span class="badge coursera">Coursera</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Coursera: Python for Data Analysis</strong> <span class="badge coursera">Coursera</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Coursera: Python for Data Visualization</strong> <span class="badge coursera">Coursera</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Coursera: Merge, Sort and Filter Data in Python Pandas</strong> <span class="badge coursera">Coursera</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Statistics 101 (Independent MOOC)</strong></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Coursera: Python OCR using PyTorch</strong> <span class="badge coursera">Coursera</span></div></li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>DevOps</summary>
+            <div>
+              <div class="badges" style="margin-bottom:8px">
+                <span class="badge oci">Oracle</span>
+                <span class="badge coursera">Coursera</span>
+              </div>
+              <ul class="list">
+                <li class="item"><div class="when">2025</div><div><strong>OCI 2025 Certified DevOps Professional</strong> <span class="badge oci">Oracle</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Version Control using Git</strong> <span class="badge coursera">Coursera</span></div></li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Security</summary>
+            <div>
+              <div class="badges" style="margin-bottom:8px">
+                <span class="badge cisco">Cisco</span>
+              </div>
+              <ul class="list">
+                <li class="item"><div class="when">—</div><div><strong>Cisco: Introduction to Cybersecurity</strong> <span class="badge cisco">Cisco</span></div></li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Web / Mobile Development</summary>
+            <div>
+              <div class="badges" style="margin-bottom:8px">
+                <span class="badge meta">Meta</span>
+                <span class="badge coursera">Coursera</span>
+                <span class="badge oci">Oracle</span>
+              </div>
+              <ul class="list">
+                <li class="item"><div class="when">—</div><div><strong>Meta: Introduction to iOS Mobile App Development</strong> <span class="badge meta">Meta</span></div></li>
+                <li class="item"><div class="when">—</div><div><strong>Build a Twitter Clone Front-End with ReactJS</strong> <span class="badge coursera">Coursera</span></div></li>
+                <li class="item"><div class="when">2025</div><div><strong>OCI 2025 Certified Developer Professional</strong> <span class="badge oci">Oracle</span></div></li>
+              </ul>
+            </div>
+          </details>
+        </div>
       </section>
 
       <section id="pubs" aria-labelledby="pubs-h">
