@@ -8,31 +8,32 @@
     <meta name="theme-color" content="#0b1220">
 
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-
       :root{
-        --bg:#050506;
-        --bg-soft:#0b0c10;
-        --bg-elev:#101218;
-        --text:#f3f4f6;
-        --muted:#a3abb7;
-        --accent:#22d3ee;
-        --accent-2:#a78bfa;
-        --accent-3:#f59e0b;
-        --card:#0c0e14;
-        --ring: rgba(34,211,238,.35);
-        --divider: rgba(148,163,184,.14);
+        --bg:#050505;
+        --bg-soft:#0a0a0b;
+        --bg-elev:#111216;
+        --text:#f5f5f7;
+        --muted:#9aa0aa;
+        --accent-1:#5ac8fa;
+        --accent-2:#64d2ff;
+        --accent-3:#7cffc4;
+        --accent-4:#ff9f0a;
+        --accent-5:#bf5af2;
+        --accent-6:#ff453a;
+        --card:#0b0b0c;
+        --ring: rgba(90,200,250,.35);
+        --divider: rgba(148,163,184,.16);
       }
       html,body{height:100%}
       *{box-sizing:border-box}
       body{
         margin:0;
-        font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,"Helvetica Neue",Arial,sans-serif;
+        font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
         color:var(--text);
         background:
-          radial-gradient(1200px 600px at 90% -10%, rgba(167,139,250,.12), transparent 60%),
-          radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,.10), transparent 60%),
-          linear-gradient(180deg, var(--bg), #06070a 40%, var(--bg) 100%);
+          radial-gradient(1200px 600px at 90% -10%, rgba(90,200,250,.10), transparent 60%),
+          radial-gradient(900px 500px at -10% 10%, rgba(191,90,242,.10), transparent 60%),
+          linear-gradient(180deg, var(--bg), #070708 40%, var(--bg) 100%);
         scroll-behavior:smooth;
         letter-spacing:0.1px;
       }
@@ -42,7 +43,7 @@
       .container{max-width:1120px;margin:0 auto;padding:0 24px}
       header{position:sticky;top:0;z-index:20;background:rgba(5,5,6,.75);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--divider)}
       .nav{display:flex;align-items:center;justify-content:space-between;height:66px;position:relative}
-      .brand{font-family:"Space Grotesk","Manrope",sans-serif;font-weight:700;letter-spacing:.4px}
+      .brand{font-weight:700;letter-spacing:.2px}
       .links{display:flex;gap:18px}
       .links a{
         padding:8px 10px;
@@ -58,7 +59,7 @@
         right:10px;
         bottom:4px;
         height:2px;
-        background:linear-gradient(90deg,var(--accent),var(--accent-2));
+        background:linear-gradient(90deg,var(--accent-1),var(--accent-5));
         transform:scaleX(0);
         transform-origin:left;
         transition:transform .25s ease;
@@ -67,11 +68,11 @@
       .links a:hover::after{transform:scaleX(1)}
       .hero{padding:96px 0 56px}
       .hero h1{
-        font-family:"Space Grotesk","Manrope",sans-serif;
         font-size:clamp(30px,6vw,48px);
         line-height:1.05;
         margin:0 0 12px;
-        background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));
+        letter-spacing:-0.4px;
+        background:linear-gradient(90deg,var(--accent-1),var(--accent-5),var(--accent-4));
         -webkit-background-clip:text;
         background-clip:text;
         color:transparent;
@@ -89,21 +90,20 @@
         color:var(--text);
         transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;
       }
-      .btn:hover{border-color:rgba(34,211,238,.55);box-shadow:0 0 0 4px var(--ring);transform:translateY(-1px)}
+      .btn:hover{border-color:rgba(90,200,250,.55);box-shadow:0 0 0 4px var(--ring);transform:translateY(-1px)}
       .btn.primary{
-        background:linear-gradient(90deg,var(--accent),#10b981);
+        background:linear-gradient(90deg,var(--accent-1),var(--accent-3));
         border-color:transparent;
         color:#001018;
         font-weight:600;
       }
-      .btn.primary:hover{box-shadow:0 10px 24px rgba(16,185,129,.18), 0 0 0 4px rgba(34,211,238,.3)}
+      .btn.primary:hover{box-shadow:0 10px 24px rgba(90,200,250,.18), 0 0 0 4px rgba(90,200,250,.3)}
       section{padding:32px 0;border-top:1px solid var(--divider)}
       h2{
-        font-family:"Space Grotesk","Manrope",sans-serif;
         font-size:clamp(19px,3.6vw,24px);
         margin:0 0 18px;
         color:#e2e8f0;
-        letter-spacing:.3px;
+        letter-spacing:-0.2px;
       }
       h2::after{
         content:"";
@@ -112,7 +112,7 @@
         height:3px;
         margin-top:8px;
         border-radius:999px;
-        background:linear-gradient(90deg,var(--accent),var(--accent-2));
+        background:linear-gradient(90deg,var(--accent-1),var(--accent-4));
       }
       .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
       .card{
@@ -122,7 +122,7 @@
         padding:16px;
         transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
       }
-      .card:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.35);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+      .card:hover{transform:translateY(-2px);border-color:rgba(100,210,255,.35);box-shadow:0 16px 40px rgba(0,0,0,.35)}
       .card h3{margin:0 0 8px;font-size:18px}
       .card p{margin:0;color:var(--muted)}
       .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
@@ -130,9 +130,19 @@
         font-size:12px;
         padding:5px 9px;
         border-radius:999px;
-        background:rgba(34,211,238,.12);
-        color:#c8eaff;
-        border:1px solid rgba(34,211,238,.28);
+        background:rgba(100,210,255,.12);
+        color:#d6f2ff;
+        border:1px solid rgba(100,210,255,.28);
+      }
+      .tags .tag:nth-child(3n+2){
+        background:rgba(191,90,242,.12);
+        border-color:rgba(191,90,242,.28);
+        color:#f1ddff;
+      }
+      .tags .tag:nth-child(3n){
+        background:rgba(255,159,10,.12);
+        border-color:rgba(255,159,10,.28);
+        color:#ffe2b3;
       }
       .list{display:grid;gap:12px}
       .item{
@@ -145,7 +155,7 @@
         background:rgba(8,10,14,.65);
         transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
       }
-      .item:hover{border-color:rgba(34,211,238,.35);transform:translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,.28)}
+      .item:hover{border-color:rgba(90,200,250,.35);transform:translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,.28)}
       .when{font-size:12px;color:var(--muted);min-width:110px}
       footer{padding:42px 0;color:var(--muted);text-align:center}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
