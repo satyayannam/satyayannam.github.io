@@ -57,6 +57,7 @@
 
       html {
         scroll-behavior: smooth;
+        overflow-x: hidden;
       }
 
       body {
@@ -70,6 +71,7 @@
         line-height: 1.6;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
       }
 
       a {
@@ -90,10 +92,17 @@
         max-width: 1160px;
         margin: 0 auto;
         padding: 0 24px;
+        width: 100%;
       }
 
       .site-header {
-        display: none;
+        display: block;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid var(--line);
+        background: rgba(248, 250, 252, 0.84);
+        backdrop-filter: blur(18px);
       }
 
       body[data-theme="dark"] .site-header {
@@ -115,6 +124,7 @@
         font-family: var(--font-code);
         font-weight: 700;
         letter-spacing: 0;
+        min-width: 158px;
       }
 
       .brand::before,
@@ -130,8 +140,34 @@
         content: "/>";
       }
 
-      .brand span {
+      .brand-subtitle {
         display: none;
+      }
+
+      .brand-text {
+        position: relative;
+        display: inline-block;
+        min-width: 112px;
+        color: var(--navy);
+        white-space: nowrap;
+      }
+
+      .brand-text::after {
+        content: "";
+        display: inline-block;
+        width: 7px;
+        height: 1.1em;
+        margin-left: 3px;
+        border-radius: 999px;
+        background: var(--teal);
+        vertical-align: -0.18em;
+        animation: caretBlink 0.72s steps(1, end) infinite;
+        box-shadow: 0 0 14px rgba(192, 132, 252, 0.55);
+      }
+
+      .brand-text.is-missing {
+        color: var(--cyan);
+        text-shadow: 0 0 12px rgba(103, 232, 249, 0.28);
       }
 
       .links {
@@ -148,6 +184,17 @@
         font-weight: 500;
         padding: 9px 10px;
         transition: color 0.2s var(--ease), background 0.2s var(--ease);
+      }
+
+      .menu-type {
+        display: inline-block;
+        min-width: var(--type-width, auto);
+        white-space: nowrap;
+      }
+
+      .menu-type.is-missing {
+        color: var(--cyan);
+        text-shadow: 0 0 10px rgba(103, 232, 249, 0.22);
       }
 
       body[data-theme="dark"] .links a {
@@ -205,10 +252,10 @@
       }
 
       .hero {
-        min-height: calc(100vh - 68px);
+        min-height: auto;
         display: grid;
         align-items: start;
-        padding: 54px 0 64px;
+        padding: clamp(28px, 5vw, 54px) 0 clamp(42px, 7vw, 64px);
         position: relative;
         overflow: hidden;
         background:
@@ -390,7 +437,7 @@
       .journey-map {
         position: relative;
         width: 100%;
-        min-height: min(860px, calc(100vh - 96px));
+        min-height: 0;
         overflow: visible;
         border: 1px solid rgba(148, 163, 184, 0.18);
         border-radius: 34px;
@@ -412,6 +459,14 @@
 
       .minimal-tree-svg text {
         font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      .mobile-journey {
+        display: none;
+      }
+
+      .mobile-journey a {
+        color: inherit;
       }
 
       .root-name {
@@ -601,6 +656,7 @@
         border-radius: 24px;
         box-shadow: none;
         padding: 26px;
+        min-width: 0;
         transition: transform 0.34s var(--ease), box-shadow 0.34s var(--ease), border-color 0.34s var(--ease), background 0.34s var(--ease);
       }
 
@@ -843,6 +899,7 @@
         align-items: start;
         justify-content: space-between;
         gap: 12px;
+        min-width: 0;
       }
 
       .project-title {
@@ -866,6 +923,7 @@
         line-height: 1.2;
         margin: 0;
         font-family: var(--font-code);
+        overflow-wrap: anywhere;
       }
 
       .project-card p {
@@ -891,6 +949,7 @@
         font-weight: 600;
         font-family: var(--font-code);
         padding: 4px 9px;
+        overflow-wrap: anywhere;
       }
 
       .tag.category {
@@ -1057,6 +1116,40 @@
         }
       }
 
+      @keyframes mobileJourneyIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes mobilePulse {
+        0%,
+        100% {
+          opacity: 0.46;
+          transform: scaleY(0.92);
+        }
+        50% {
+          opacity: 1;
+          transform: scaleY(1);
+        }
+      }
+
+      @keyframes caretBlink {
+        0%,
+        48% {
+          opacity: 1;
+        }
+        49%,
+        100% {
+          opacity: 0;
+        }
+      }
+
       @media (max-width: 980px) {
         .hero-grid,
         .contact-band {
@@ -1078,9 +1171,9 @@
         }
 
         .journey-map {
-          min-height: 640px;
-          padding: 0;
-          overflow-x: auto;
+          border-radius: 26px;
+          padding: 16px;
+          overflow: hidden;
         }
       }
 
@@ -1102,6 +1195,7 @@
           border-radius: 22px;
           box-shadow: var(--shadow);
           padding: 8px;
+          z-index: 60;
         }
 
         .links.open {
@@ -1118,7 +1212,7 @@
 
         .hero {
           min-height: auto;
-          padding-top: 48px;
+          padding-top: 28px;
         }
 
         .section-heading {
@@ -1144,8 +1238,48 @@
           padding: 0 16px;
         }
 
+        .nav {
+          min-height: 60px;
+        }
+
+        .links {
+          left: 12px;
+          right: 12px;
+          top: 64px;
+          border-radius: 16px;
+        }
+
+        section {
+          padding: 48px 0;
+          scroll-margin-top: 70px;
+        }
+
+        .hero {
+          padding: 18px 0 34px;
+        }
+
         h1 {
-          font-size: 46px;
+          font-size: 40px;
+          line-height: 1;
+        }
+
+        h2 {
+          font-size: 34px;
+          line-height: 1.08;
+        }
+
+        h2::before,
+        h2::after {
+          margin: 0 4px;
+        }
+
+        .lead {
+          font-size: 18px;
+        }
+
+        .card {
+          border-radius: 18px;
+          padding: 20px;
         }
 
         .profile-meta,
@@ -1170,23 +1304,161 @@
         }
 
         .journey-map {
-          min-height: 620px;
-          border-radius: 0;
-          padding: 12px;
+          border-radius: 20px;
+          margin: 0;
+          padding: 10px;
         }
 
         .minimal-tree-svg {
-          width: 940px;
-          max-width: none;
-          margin-left: 0;
+          display: none;
         }
 
-        .root-name {
-          font-size: 44px;
+        .mobile-journey {
+          display: grid;
+          gap: 10px;
+          position: relative;
+          padding-left: 18px;
         }
 
-        .root-subtitle {
-          font-size: 16px;
+        .mobile-journey::before {
+          content: "";
+          position: absolute;
+          left: 5px;
+          top: 12px;
+          bottom: 12px;
+          width: 2px;
+          border-radius: 999px;
+          background: linear-gradient(180deg, #c084fc, #a78bfa 48%, #67e8f9);
+          box-shadow: 0 0 18px rgba(192, 132, 252, 0.52);
+          animation: mobilePulse 3.8s ease-in-out infinite;
+          transform-origin: center;
+        }
+
+        .mobile-journey a {
+          display: block;
+          position: relative;
+          opacity: 0;
+          transform: translateY(18px) scale(0.96);
+          animation: mobileJourneyIn 0.65s var(--ease) forwards;
+        }
+
+        .mobile-journey a::before {
+          content: "";
+          position: absolute;
+          left: -18px;
+          top: 24px;
+          width: 12px;
+          height: 12px;
+          border-radius: 999px;
+          background: #67e8f9;
+          box-shadow: 0 0 0 4px rgba(103, 232, 249, 0.12), 0 0 18px rgba(103, 232, 249, 0.7);
+          z-index: 1;
+        }
+
+        .mobile-journey a:nth-child(1) { animation-delay: 0.05s; }
+        .mobile-journey a:nth-child(2) { animation-delay: 0.13s; }
+        .mobile-journey a:nth-child(3) { animation-delay: 0.21s; }
+        .mobile-journey a:nth-child(4) { animation-delay: 0.29s; }
+        .mobile-journey a:nth-child(5) { animation-delay: 0.37s; }
+        .mobile-journey a:nth-child(6) { animation-delay: 0.45s; }
+        .mobile-journey a:nth-child(7) { animation-delay: 0.53s; }
+        .mobile-journey a:nth-child(8) { animation-delay: 0.61s; }
+
+        .mobile-journey .journey-card {
+          position: relative;
+          overflow: hidden;
+          border-radius: 18px;
+          padding: 18px;
+          background:
+            radial-gradient(circle at 0% 0%, rgba(192, 132, 252, 0.18), transparent 36%),
+            rgba(15, 23, 42, 0.84);
+          transition: transform 0.24s var(--ease), border-color 0.24s var(--ease), box-shadow 0.24s var(--ease), background 0.24s var(--ease);
+        }
+
+        .mobile-journey .journey-card::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.1) 44%, transparent 70%);
+          opacity: 0;
+          transform: translateX(-80%);
+          transition: opacity 0.24s var(--ease), transform 0.5s var(--ease);
+        }
+
+        .mobile-journey a:hover .journey-card,
+        .mobile-journey a:focus-visible .journey-card,
+        .mobile-journey a:active .journey-card {
+          border-color: rgba(103, 232, 249, 0.58);
+          box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34), 0 0 28px rgba(103, 232, 249, 0.12);
+          transform: translateY(-2px);
+        }
+
+        .mobile-journey a:hover .journey-card::after,
+        .mobile-journey a:focus-visible .journey-card::after,
+        .mobile-journey a:active .journey-card::after {
+          opacity: 1;
+          transform: translateX(80%);
+        }
+
+        .mobile-journey .journey-card h3 {
+          font-size: 24px;
+        }
+
+        .mobile-journey .journey-card p {
+          font-size: 15px;
+        }
+
+        .project-top {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .tag.category {
+          align-self: flex-start;
+        }
+
+        .contact-band {
+          border-radius: 20px;
+          padding: 24px 20px;
+        }
+
+        .footer-links {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .container {
+          padding: 0 12px;
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        h2 {
+          font-size: 29px;
+        }
+
+        .card {
+          padding: 18px;
+        }
+
+        .journey-map {
+          padding: 8px;
+        }
+
+        .mobile-journey .journey-card {
+          padding: 16px;
+        }
+
+        .mobile-journey .journey-card h3 {
+          font-size: 22px;
+        }
+
+        .mobile-journey .journey-card p {
+          font-size: 14px;
+          line-height: 1.35;
         }
       }
 
@@ -1199,6 +1471,11 @@
           scroll-behavior: auto !important;
           transition-duration: 0.01ms !important;
         }
+
+        .brand-text::after {
+          animation: none !important;
+          opacity: 1;
+        }
       }
     </style>
   </head>
@@ -1206,17 +1483,17 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="#home" aria-label="Satya Yannam home">
-          Satya Yannam
-          <span>Data Science | AI | Data Engineering</span>
+          <span class="brand-text" id="brandText" aria-hidden="true">Satya Yannam</span>
+          <span class="brand-subtitle">Data Science | AI | Data Engineering</span>
         </a>
         <nav class="links" id="primaryNav" aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#contact">Contact</a>
+          <a href="#about"><span class="menu-type" data-type-text="About" style="--type-width: 42px;">About</span></a>
+          <a href="#education"><span class="menu-type" data-type-text="Education" style="--type-width: 70px;">Education</span></a>
+          <a href="#experience"><span class="menu-type" data-type-text="Experience" style="--type-width: 78px;">Experience</span></a>
+          <a href="#projects"><span class="menu-type" data-type-text="Projects" style="--type-width: 58px;">Projects</span></a>
+          <a href="#skills"><span class="menu-type" data-type-text="Skills" style="--type-width: 38px;">Skills</span></a>
+          <a href="#certifications"><span class="menu-type" data-type-text="Certifications" style="--type-width: 98px;">Certifications</span></a>
+          <a href="#contact"><span class="menu-type" data-type-text="Contact" style="--type-width: 54px;">Contact</span></a>
         </nav>
         <div class="nav-actions">
           <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Toggle theme">
@@ -1346,6 +1623,56 @@
                 </foreignObject>
               </a>
             </svg>
+            <div class="mobile-journey" aria-label="Portfolio sections">
+              <a href="#research">
+                <div class="journey-card">
+                  <h3>Research</h3>
+                  <p>Published machine learning work focused on healthcare prediction and applied analytics.</p>
+                </div>
+              </a>
+              <a href="#education">
+                <div class="journey-card">
+                  <h3>Education</h3>
+                  <p>M.S. Data Science and Analytics from FAU, graduated in May 2026.</p>
+                </div>
+              </a>
+              <a href="#projects">
+                <div class="journey-card">
+                  <h3>Projects</h3>
+                  <p>AI, analytics, healthcare, automation, and public policy technology projects.</p>
+                </div>
+              </a>
+              <a href="#skills">
+                <div class="journey-card">
+                  <h3>Skills</h3>
+                  <p>Python, SQL, cloud, ML, ETL, dashboards, LLM workflows, and visualization.</p>
+                </div>
+              </a>
+              <a href="#experience">
+                <div class="journey-card">
+                  <h3>Experience</h3>
+                  <p>OpenTheBooks and MedKick internships across public data and healthcare analytics.</p>
+                </div>
+              </a>
+              <a href="#certifications">
+                <div class="journey-card">
+                  <h3>Certifications</h3>
+                  <p>AWS, Cisco, IBM, Google, Microsoft, Anthropic, and DataCamp credentials.</p>
+                </div>
+              </a>
+              <a href="#achievements">
+                <div class="journey-card">
+                  <h3>Achievements</h3>
+                  <p>Graduate milestones, published ML research, and practical project outcomes.</p>
+                </div>
+              </a>
+              <a href="#interests">
+                <div class="journey-card">
+                  <h3>Interests</h3>
+                  <p>Public impact, healthcare systems, civic data, automation, and useful AI products.</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1721,6 +2048,73 @@
         themeToggle.addEventListener("click", () => {
           const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
           setTheme(nextTheme);
+        });
+      }
+
+      const brandText = document.getElementById("brandText");
+      const typoFrames = [
+        "Satya Yannam",
+        "Satya Yannm",
+        "Satya Yannam",
+        "Saty Yannam",
+        "Satya Yannam",
+        "Satya Ynnam",
+        "Satya Yannam",
+        "Stya Yannam",
+        "Satya Yannam",
+        "Satya Yannan",
+        "Satya Yannam"
+      ];
+
+      if (brandText && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        let frame = 0;
+        const typeMistake = () => {
+          brandText.classList.toggle("is-missing", typoFrames[frame] !== "Satya Yannam");
+          brandText.textContent = typoFrames[frame];
+          frame = (frame + 1) % typoFrames.length;
+          const nextDelay = typoFrames[frame] === "Satya Yannam" ? 520 : 95;
+          window.setTimeout(typeMistake, nextDelay);
+        };
+
+        window.setTimeout(typeMistake, 700);
+      }
+
+      const menuTypeItems = document.querySelectorAll(".menu-type[data-type-text]");
+      const dropOneLetter = (text, offset = 0) => {
+        if (text.length < 4) return text;
+        const index = (Math.max(1, Math.floor(text.length / 2) + offset) + text.length) % text.length;
+        return text.slice(0, index) + text.slice(index + 1);
+      };
+      const swapNearLetter = (text, offset = 0) => {
+        if (text.length < 4) return text;
+        const index = (Math.max(1, Math.floor(text.length / 2) + offset) + text.length - 1) % (text.length - 1);
+        return text.slice(0, index) + text[index + 1] + text[index] + text.slice(index + 2);
+      };
+
+      if (menuTypeItems.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        menuTypeItems.forEach((item, itemIndex) => {
+          const original = item.dataset.typeText || item.textContent || "";
+          const variants = [
+            original,
+            dropOneLetter(original, -1),
+            original,
+            dropOneLetter(original, 1),
+            original,
+            swapNearLetter(original, 0),
+            original
+          ];
+          let itemFrame = 0;
+
+          const runMenuTypo = () => {
+            const nextText = variants[itemFrame];
+            item.classList.toggle("is-missing", nextText !== original);
+            item.textContent = nextText;
+            itemFrame = (itemFrame + 1) % variants.length;
+            const nextDelay = variants[itemFrame] === original ? 1100 + itemIndex * 85 : 120;
+            window.setTimeout(runMenuTypo, nextDelay);
+          };
+
+          window.setTimeout(runMenuTypo, 1050 + itemIndex * 220);
         });
       }
 
