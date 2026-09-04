@@ -1,31 +1,32 @@
-﻿# Satya Yannam's Portfolio
+# Satya Teja Yannam Portfolio
 
-A fast, simple single‑page portfolio built with semantic HTML, minimal CSS, and a touch of vanilla JS. Optimized to run directly on GitHub Pages (no build step required).
+Static GitHub Pages portfolio for Satya Teja Yannam, positioned as an Applied AI & Data Engineer.
 
-## Features
-- Clean, responsive design
-- Sections: About, Skills, Projects, Experience, Certifications, Publications, Contact
-- Sticky navigation with smooth scroll
-- Works as a static site on GitHub Pages
+## Architecture
 
-## Live Site
-https://satyayannam.github.io/
+- `index.html` is the production page.
+- `assets/site.css` contains the visual system and responsive layout.
+- `assets/site.js` handles theme persistence, mobile navigation, section reveals, active nav, copy-email, and guarded resume visibility.
+- `robots.txt`, `sitemap.xml`, favicon, apple icon, and Open Graph artwork are included for SEO/social sharing.
 
-## Editing Your Details
-Edit the content directly in `index.html`:
-- Name/Title: hero in `index.html:26`
-- About: `index.html:44`
-- Skills tags: `index.html:50`
-- Projects: `index.html:59`
-- Experience timeline: `index.html:79`
-- Certifications: `index.html:95`
-- Publications: `index.html:103`
-- Contact links: `index.html:111`
+No build step is required. GitHub Pages can serve the repository directly.
 
-Replace placeholders like `your.email@example.com`, `your-linkedin`, and sample project entries.
+## Resume
+
+Add a current resume PDF at:
+
+```text
+assets/resume.pdf
+```
+
+The resume CTA is disabled until that file exists, so the public site will not expose a broken PDF link.
 
 ## Local Preview
-Just open `index.html` in a browser. No tooling needed.
+
+Open `index.html` directly, or run any simple static file server from this directory.
 
 ## Deploy
-Push to the `main` branch of this repo. GitHub Pages serves `index.html` automatically for `satyayannam.github.io`.
+
+Push changes to the `main` branch. GitHub Pages serves `index.html` at:
+
+https://satyayannam.github.io/

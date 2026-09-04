@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Satya Teja Yannam - Applied AI and Data Engineer</title>
+  <desc id="desc">Social preview card with AI systems, data products, and automation positioning.</desc>
+  <rect width="1200" height="630" fill="#0b0d12"/>
+  <path d="M0 0h1200v630H0z" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#28d5c3" stop-opacity=".16"/>
+      <stop offset=".48" stop-color="#151a22" stop-opacity="1"/>
+      <stop offset="1" stop-color="#0b0d12"/>
+    </linearGradient>
+  </defs>
+  <g opacity=".22" stroke="#8fe9df">
+    <path d="M760 145h210v66H760z"/>
+    <path d="M832 211v54"/>
+    <path d="M710 265h244v66H710z"/>
+    <path d="M832 331v54"/>
+    <path d="M770 385h256v66H770z"/>
+  </g>
+  <text x="86" y="184" fill="#8fe9df" font-family="Consolas, monospace" font-size="28" font-weight="700">SATYA TEJA YANNAM</text>
+  <text x="86" y="292" fill="#f5f7fb" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="76" font-weight="800">Applied AI &amp;</text>
+  <text x="86" y="374" fill="#f5f7fb" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="76" font-weight="800">Data Engineer</text>
+  <text x="86" y="456" fill="#aab4c3" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30">AI systems. Data products. Automation.</text>
+  <text x="86" y="525" fill="#8fe9df" font-family="Consolas, monospace" font-size="24">satyayannam.github.io</text>
+</svg>
