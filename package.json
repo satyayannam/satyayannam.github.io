@@ -1,0 +1,9 @@
+{
+  "name": "satya-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preview": "python -m http.server 4173 --bind 127.0.0.1",
+    "sync:content": "node scripts/sync-content.mjs"
+  }
+}

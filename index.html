@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Satya Teja Yannam | Applied AI & Data Engineer</title>
     <meta name="description" content="Satya Teja Yannam is an Applied AI & Data Engineer building AI systems, data products, dashboards, automation workflows, RAG applications, and public-data analytics.">
-    <meta name="theme-color" content="#0b0d12">
+    <meta name="theme-color" content="#05060a">
     <link rel="canonical" href="https://satyayannam.github.io/">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://satyayannam.github.io/">
@@ -20,6 +20,7 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
     <link rel="preload" href="assets/site.css" as="style">
     <link rel="stylesheet" href="assets/site.css">
+    <link rel="stylesheet" href="assets/cyber.css">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -60,28 +61,31 @@
     </script>
   </head>
   <body>
+    <canvas id="neural-background" aria-hidden="true"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="boot-screen" data-boot aria-hidden="true"></div>
+    <div class="route-wipe" aria-hidden="true"></div>
+    <div class="crosshair" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" data-header>
       <nav class="nav container" aria-label="Primary navigation">
         <a class="brand" href="#home" aria-label="Satya Teja Yannam home">
           <span class="brand-mark" aria-hidden="true">SY</span>
-          <span>Satya Teja Yannam</span>
+          <span>satya<span class="brand-path"> / portfolio</span></span>
         </a>
         <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-menu" aria-expanded="false" data-menu-toggle>
           <span></span>
           <span></span>
         </button>
         <div class="nav-links" id="site-menu" data-menu>
-          <a href="#work">Work</a>
-          <a href="#experience">Experience</a>
-          <a href="#research">Research</a>
-          <a href="#about">About</a>
+          <a href="#work">~/projects</a>
+          <a href="#experience">~/experience</a>
+          <a href="#research">~/research</a>
+          <a href="#about">~/about</a>
           <a href="assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-          <a class="nav-cta" href="#contact">Let's Talk</a>
-          <button class="theme-toggle" type="button" aria-label="Switch theme" data-theme-toggle>
-            <span class="theme-icon" aria-hidden="true"></span>
-          </button>
+          <a class="nav-cta" href="#contact">~/contact ↗</a>
+
         </div>
       </nav>
     </header>
@@ -90,9 +94,10 @@
       <section class="hero section" id="home" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Open to Applied AI / Data Engineering roles</p>
-            <h1 id="hero-title">Satya Teja Yannam</h1>
-            <p class="hero-role">Applied AI &<br>Data Engineer.</p>
+            <p class="eyebrow availability"><span class="online-dot"></span> Open to Applied AI / Data Engineering roles</p>
+            <div class="terminal-line"><span data-terminal-command>&gt; whoami</span><span class="terminal-output" data-terminal-output aria-hidden="true"></span><span class="terminal-cursor" aria-hidden="true">▌</span></div>
+            <h1 id="hero-title">Satya Teja<br><span>Yannam<span class="name-dot">.</span></span></h1>
+            <p class="hero-role">Applied AI <span class="role-slash">/</span> Data Engineer.</p>
             <p class="hero-lede">I build AI systems, data products, and automation that turn messy real-world data into useful software.</p>
             <div class="cred-row" aria-label="Professional credibility">
               <span>M.S. Data Science @ FAU</span>
@@ -108,7 +113,18 @@
             </div>
           </div>
 
-          <div class="system-panel" aria-label="AI and data product flow visualization">
+          <div class="neural-console" aria-label="Interactive technology constellation">
+            <div class="scene-caption"><span>FIG. 01 / NEURAL INFRASTRUCTURE</span><span class="live-label">● LIVE</span></div>
+            <div class="scene-window" aria-hidden="true"><span class="scene-coordinate">SYS / 013<br>IGNITION ACTIVE</span><span class="scene-axis">INTELLIGENCE, IN MOTION.</span></div>
+            <div class="node-header"><span>// explore the stack</span><span>13 nodes · equal weight</span></div>
+            <div class="skill-nodes" data-skill-nodes></div>
+            <p class="skill-tooltip" data-skill-tooltip role="status">&gt; Select a node to trace its connections.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="hero-status container"><span><i class="online-dot"></i> SYSTEM ONLINE</span><span>AI × DATA × AUTOMATION</span><a href="#experience">SCROLL TO EXPLORE ↓</a></div>
+      <div class="container flow-strip">          <div class="system-panel" aria-label="AI and data product flow visualization">
             <div class="signal-grid" aria-hidden="true"></div>
             <div class="flow-node active"><span>01</span><strong>Data</strong><small>messy sources</small></div>
             <div class="flow-line"></div>
@@ -119,10 +135,7 @@
             <div class="flow-node"><span>04</span><strong>API</strong><small>integrations</small></div>
             <div class="flow-line"></div>
             <div class="flow-node"><span>05</span><strong>Product</strong><small>usable interface</small></div>
-          </div>
-        </div>
-      </section>
-
+          </div></div>
       <section class="section work-section" id="work" aria-labelledby="work-title">
         <div class="container">
           <div class="section-heading">
@@ -261,30 +274,55 @@
         <div class="container split-layout">
           <div class="section-heading sticky-copy">
             <p class="eyebrow">Experience</p>
-            <h2 id="experience-title">Internship work framed around systems shipped.</h2>
-            <p>Recruiters should see applied engineering work quickly: data ingestion, validation, dashboards, APIs, automation, and AI workflows.</p>
+            <h2 id="experience-title">The work.<br><span class="accent-text">The commit log.</span></h2>
+            <p>AI, data, and automation — from real-world datasets to working products.</p>
+            <div class="git-command"><span>~</span> git log --experience<br><small>branch: main / 4 entries</small></div>
           </div>
-          <div class="timeline">
-            <article class="timeline-item reveal" id="case-openthebooks">
-              <p class="time">OpenTheBooks · Data Analysis Intern</p>
-              <h3>Public Data Engineering + Analytics + Research</h3>
-              <p>Worked with IRS migration data, government spending datasets, county-level data, FHFA House Price Index, Census ACS income data, and housing affordability analysis.</p>
-              <ul>
-                <li>Cleaned, validated, reconciled, and visualized public datasets for research/reporting workflows.</li>
-                <li>Built Streamlit dashboards and interactive analytics for county-level migration and AGI movement.</li>
-                <li>Analyzed all 50 states using 2015-2024 growth comparisons and 2024 down-payment affordability framing.</li>
-              </ul>
-            </article>
-            <article class="timeline-item reveal">
-              <p class="time">MedKick · Data Science & Analytics Intern</p>
-              <h3>Healthcare Data + AI + Automation + Operations Engineering</h3>
-              <p>Built operational visibility and automation around healthcare call workflows, nurse performance analytics, enrichment, and internal knowledge retrieval.</p>
-              <ul>
-                <li>Integrated GoTo call APIs with OAuth/token refresh and Streamlit dashboards for call monitoring.</li>
-                <li>Implemented nurse-level inbound, outbound, missed-call, duration, and time-gap analytics.</li>
-                <li>Developed Slack/n8n/Apollo automation workflows and RAG chatbot components using Mistral/LangChain concepts.</li>
-              </ul>
-            </article>
+          <div class="timeline" data-timeline>
+    <article class="timeline-item reveal" id="suprgig">
+      <div class="commit-meta"><span>commit / 04</span><span class="present-badge">● PRESENT</span></div>
+      <p class="time">Jul 2026 – Present</p>
+      <h3>Founder<span class="company">suprgig</span></h3>
+      <p class="role-location">Self-employed · San Francisco Bay Area</p>
+      <details open><summary>Role details <span aria-hidden="true">±</span></summary>
+        <p>Building suprgig, a managed tech delivery platform that helps companies launch software, apps, AI tools, automation, and digital products without hiring a full in-house tech team.</p>
+        <div class="tag-row"><button type="button" class="skill-tag" data-skill="llms">AI tools</button><button type="button" class="skill-tag" data-skill="automation">Automation</button><span>Software delivery</span></div>
+        <a class="suprgig-link" href="https://suprgig.com" title="SuprGig | Managed Software Development Teams" target="_blank" rel="noopener noreferrer"><span><small>BUILDING NOW</small>Visit suprgig.com</span><span aria-hidden="true">↗</span></a>
+      </details>
+    </article>
+    <article class="timeline-item reveal" id="case-openthebooks">
+      <div class="commit-meta"><span>commit / 03</span><span>merged</span></div>
+      <p class="time">Jan 2026 – May 2026</p>
+      <h3>Data Analysis Intern<span class="company">OpenTheBooks</span></h3>
+      <p class="role-location">Internship · The Villages, Florida, United States · Remote</p>
+      <details open><summary>Role details <span aria-hidden="true">±</span></summary>
+        <p>Supported government transparency efforts by working with large, real-world public spending datasets.</p>
+        <div class="tag-row"><button type="button" class="skill-tag" data-skill="analysis">Data Analysis</button><button type="button" class="skill-tag" data-skill="visualization">Data Visualization</button></div>
+
+      </details>
+    </article>
+    <article class="timeline-item reveal" id="medkick">
+      <div class="commit-meta"><span>commit / 02</span><span>merged</span></div>
+      <p class="time">May 2025 – Dec 2025</p>
+      <h3>Data Analytics and I.T. Intern<span class="company">MedKick</span></h3>
+      <p class="role-location">Internship · West Palm Beach, Florida, United States · Remote</p>
+      <details open><summary>Role details <span aria-hidden="true">±</span></summary>
+        <p>Built intelligent dashboards and applied machine learning techniques to healthcare data to uncover clinical insights and improve patient outcomes.</p>
+        <div class="tag-row"><button type="button" class="skill-tag" data-skill="llms">Large Language Models (LLM)</button><button type="button" class="skill-tag" data-skill="looker">Looker</button></div>
+
+      </details>
+    </article>
+    <article class="timeline-item reveal" id="jandg">
+      <div class="commit-meta"><span>commit / 01</span><span>merged</span></div>
+      <p class="time">Jan 2025 – May 2025</p>
+      <h3>Forward Deployed AI Engineer<span class="company">JandGsoftwaresolutions</span></h3>
+      <p class="role-location">Contract · Florida, United States · Hybrid</p>
+      <details open><summary>Role details <span aria-hidden="true">±</span></summary>
+        <p>Built and deployed AI, data, and automation solutions that turn real business problems into working products. Developed agentic AI and RAG systems using Python, LangChain, AutoGen, Mistral, FAISS, and Pinecone.</p>
+        <div class="tag-row"><button type="button" class="skill-tag" data-skill="rag">Artificial Intelligence (AI)</button><button type="button" class="skill-tag" data-skill="automation">Forward Deployed Engineering (FDE)</button><button type="button" class="skill-tag" data-skill="python">Python</button><button type="button" class="skill-tag" data-skill="langchain">LangChain</button><button type="button" class="skill-tag" data-skill="autogen">AutoGen</button><button type="button" class="skill-tag" data-skill="mistral">Mistral</button><button type="button" class="skill-tag" data-skill="faiss">FAISS</button><button type="button" class="skill-tag" data-skill="pinecone">Pinecone</button></div>
+
+      </details>
+    </article>
           </div>
         </div>
       </section>
@@ -466,6 +504,7 @@
       </div>
     </footer>
 
-    <script src="assets/site.js" defer></script>
+    <div class="system-dock"><span><i class="online-dot"></i> ONLINE</span><span class="dock-location">SATYA / AI & DATA</span><button type="button" data-motion-toggle aria-pressed="false">Pause effects Ⅱ</button></div>
+    <script type="module" src="assets/site.js"></script>
   </body>
 </html>
